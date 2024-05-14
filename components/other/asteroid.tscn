@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bg8qfa6xrifm1"]
+
+[node name="Asteroid" type="RigidBody2D"]
+mass = 1000.0
+angular_velocity = 0.174533
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-47, -156, -132, 99, -34, 165, 121, 127, 185, -45)

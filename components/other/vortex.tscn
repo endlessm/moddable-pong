@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://by7bpdpur84xu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4hhne"]
+radius = 300.0
+
+[node name="Vortex" type="Area2D"]
+collision_layer = 8
+collision_mask = 15
+gravity_space_override = 1
+gravity_point = true
+gravity = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4hhne")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7l70grmkauij"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c3m63"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sntrn"]
+radius = 64.0
+
+[node name="BasicBall" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_c3m63")
+linear_velocity = Vector2(-500, -500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sntrn")
