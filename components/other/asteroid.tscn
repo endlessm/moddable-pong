@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bg8qfa6xrifm1"]
 
 [node name="Asteroid" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 8
 mass = 1000.0
 angular_velocity = 0.174533
 

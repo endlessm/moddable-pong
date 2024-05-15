@@ -15,10 +15,17 @@ run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/borderless=true
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 
 [editor]
@@ -40,10 +47,12 @@ player_2_down={
 
 [layer_names]
 
-2d_physics/layer_1="Paddles"
-2d_physics/layer_2="Balls"
-2d_physics/layer_3="Walls"
-2d_physics/layer_4="Other"
+2d_physics/layer_1="paddles"
+2d_physics/layer_2="balls"
+2d_physics/layer_3="walls"
+2d_physics/layer_4="other"
+2d_physics/layer_5="left goal"
+2d_physics/layer_6="right goal"
 
 [physics]
 

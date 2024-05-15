@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l5mggwldha73"]
+
+[ext_resource type="Script" path="res://scripts/rules_goals/game_logic_coop.gd" id="1_nrtxy"]
+
+[node name="GameLogicCoop" type="Node"]
+script = ExtResource("1_nrtxy")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bel3lwsvc2uc3"]
+[gd_scene load_steps=5 format=3 uid="uid://bel3lwsvc2uc3"]
 
 [ext_resource type="PackedScene" uid="uid://s7enbp56f256" path="res://components/paddles/basic_paddle.tscn" id="1_xxpg5"]
-[ext_resource type="PackedScene" uid="uid://c7l70grmkauij" path="res://components/balls/basic_ball.tscn" id="2_bukgi"]
+[ext_resource type="PackedScene" uid="uid://bn368pidqsqgs" path="res://rules_goals/game_logic_versus.tscn" id="3_umelw"]
 [ext_resource type="PackedScene" uid="uid://cg8ibi18um3vg" path="res://spaces/basic_space.tscn" id="3_vt57p"]
+[ext_resource type="PackedScene" uid="uid://bis7afjjuwypq" path="res://hud.tscn" id="4_4868o"]
 
 [node name="Main" type="Node2D"]
 metadata/_edit_vertical_guides_ = [-933.0]
@@ -15,7 +16,8 @@ position = Vector2(1920, 512)
 scale = Vector2(-1, -1)
 side = 1
 
-[node name="BasicBall" parent="." instance=ExtResource("2_bukgi")]
-position = Vector2(969, 510)
-
 [node name="BasicSpace" parent="." instance=ExtResource("3_vt57p")]
+
+[node name="GameLogicVersus" parent="." instance=ExtResource("3_umelw")]
+
+[node name="HUD" parent="." instance=ExtResource("4_4868o")]

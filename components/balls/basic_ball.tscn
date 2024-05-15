@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7l70grmkauij"]
+[gd_scene load_steps=4 format=3 uid="uid://c7l70grmkauij"]
+
+[ext_resource type="Script" path="res://scripts/components/balls/basic_ball.gd" id="1_kv14h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c3m63"]
 friction = 0.0
@@ -7,11 +9,17 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_sntrn"]
 radius = 64.0
 
-[node name="BasicBall" type="RigidBody2D"]
+[node name="BasicBall" type="RigidBody2D" groups=["balls"]]
 collision_layer = 2
 collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_c3m63")
+continuous_cd = 1
+max_contacts_reported = 1
+contact_monitor = true
 linear_velocity = Vector2(-500, -500)
+script = ExtResource("1_kv14h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sntrn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

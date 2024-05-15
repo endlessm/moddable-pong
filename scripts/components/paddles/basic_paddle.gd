@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
-enum Direction {LEFT, RIGHT}
-@export var side: Direction = Direction.LEFT
+## Is this the left paddle? Or the right one?
+@export var side: Global.Direction = Global.Direction.LEFT
 
+## This is how fast your paddle moves.
 @export var speed = 1000.0
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction
-	if side == Direction.RIGHT:
+	if side == Global.Direction.RIGHT:
 		direction = Input.get_axis("ui_up", "ui_down")
 	else:
 		direction = Input.get_axis("player_2_up", "player_2_down")

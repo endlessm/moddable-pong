@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg8ibi18um3vg"]
+[gd_scene load_steps=6 format=3 uid="uid://cg8ibi18um3vg"]
+
+[ext_resource type="PackedScene" uid="uid://cg1m4evi8c35o" path="res://components/other/spawner.tscn" id="1_rgyjw"]
+[ext_resource type="PackedScene" uid="uid://c7l70grmkauij" path="res://components/balls/basic_ball.tscn" id="2_fpedn"]
+[ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_2llkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q267f"]
 size = Vector2(1936, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3bqe"]
+size = Vector2(10, 1080)
 
 [node name="BasicSpace" type="Node2D"]
 
@@ -17,5 +24,18 @@ position = Vector2(960, -32)
 shape = SubResource("RectangleShape2D_q267f")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, 1120)
+position = Vector2(960, 1112)
 shape = SubResource("RectangleShape2D_q267f")
+
+[node name="Spawner" parent="." groups=["ball spawners"] instance=ExtResource("1_rgyjw")]
+position = Vector2(967, 531)
+spawn_scene = ExtResource("2_fpedn")
+spawn_area = SubResource("RectangleShape2D_h3bqe")
+life_time = 0.0
+
+[node name="LeftGoal" parent="." instance=ExtResource("3_2llkd")]
+
+[node name="RightGoal" parent="." instance=ExtResource("3_2llkd")]
+position = Vector2(1920, 0)
+scale = Vector2(-1, 1)
+side = 1
