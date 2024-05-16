@@ -6,7 +6,7 @@
 size = Vector2(128, 128)
 
 [node name="ElasticPaddle" type="CharacterBody2D" groups=["paddles"]]
-collision_mask = 5
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_nvsnh")
 
