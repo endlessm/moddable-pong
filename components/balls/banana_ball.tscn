@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb52xx0oi1pkc"]
+
+[ext_resource type="Script" path="res://scripts/components/balls/banana_ball.gd" id="1_6w3xg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c3m63"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqj0q"]
+radius = 51.0
+height = 176.0
+
+[node name="BananaBall" type="RigidBody2D" groups=["balls"]]
+collision_layer = 2
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_c3m63")
+continuous_cd = 1
+max_contacts_reported = 1
+contact_monitor = true
+linear_velocity = Vector2(-500, -500)
+angular_velocity = 0.349066
+script = ExtResource("1_6w3xg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dqj0q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
