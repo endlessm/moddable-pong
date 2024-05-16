@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpekhvhdlvsjf"]
+
+[ext_resource type="Script" path="res://scripts/components/paddles/walking_paddle.gd" id="1_2m4jk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbbjr"]
+size = Vector2(128, 384)
+
+[node name="WalkingPaddle" type="CharacterBody2D" groups=["paddles"]]
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_2m4jk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_bbbjr")
