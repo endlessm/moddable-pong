@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgc8oonwgrolq"]
+
+[ext_resource type="Script" path="res://scripts/components/paddles/elastic_paddle.gd" id="1_nvsnh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbbjr"]
+size = Vector2(128, 128)
+
+[node name="ElasticPaddle" type="CharacterBody2D" groups=["paddles"]]
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_nvsnh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_bbbjr")
