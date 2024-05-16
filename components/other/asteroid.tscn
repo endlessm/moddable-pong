@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bg8qfa6xrifm1"]
+[gd_scene load_steps=2 format=3 uid="uid://bg8qfa6xrifm1"]
+
+[ext_resource type="Texture2D" uid="uid://bemeakmfsoeyf" path="res://assets/spaces/asteroid.png" id="1_d1o4w"]
 
 [node name="Asteroid" type="RigidBody2D"]
 collision_layer = 8
@@ -8,3 +10,7 @@ angular_velocity = 0.174533
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-47, -156, -132, 99, -34, 165, 121, 127, 185, -45)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(36, 3)
+texture = ExtResource("1_d1o4w")
