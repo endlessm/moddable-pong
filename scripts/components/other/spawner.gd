@@ -3,18 +3,17 @@ extends Node2D
 
 var _default_shape: RectangleShape2D = RectangleShape2D.new()
 
-## Add description here
+## The component that will be spawned.
 @export var spawn_scene: PackedScene
 
-## Add description here
+## The spawn will happen at a random point inside this area.
 @export var spawn_area: Shape2D = _default_shape
 
-## Add description here
+## How many seconds the spawned component will stay until automatically removed. If zero, it won't be automatically removed.
 @export_range(0.0, 10.0, 0.1, "or_greater") var life_time: float = 3.0
 
-## Add description here
+## The period of time in seconds to spawn another component. If zero, they won't spawn automatically. See the spawn() method.
 @export_range(0.0, 10.0, 0.1, "or_greater") var spawn_frequency: float = 0.0
-
 
 const _DEBUG_COLOR = Color(1.0, 0.3, 0.7, 0.2)
 const _DEFAULT_SHAPE_SIZE = Vector2(200, 200)
