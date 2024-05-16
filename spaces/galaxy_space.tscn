@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh5ty3tgam2gp"]
+
+[ext_resource type="PackedScene" uid="uid://cg1m4evi8c35o" path="res://components/other/spawner.tscn" id="1_kgd61"]
+[ext_resource type="PackedScene" uid="uid://c7l70grmkauij" path="res://components/balls/basic_ball.tscn" id="2_w8yd2"]
+[ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_s2bjg"]
+[ext_resource type="PackedScene" uid="uid://bg8qfa6xrifm1" path="res://components/other/asteroid.tscn" id="4_6j0m2"]
+[ext_resource type="PackedScene" uid="uid://by7bpdpur84xu" path="res://components/other/vortex.tscn" id="5_kwupg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q267f"]
+size = Vector2(1936, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3bqe"]
+size = Vector2(10, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7tvt"]
+size = Vector2(1600, 750)
+
+[node name="GalaxySpace" type="Node2D"]
+
+[node name="Walls" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+mass = 9999.0
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, -32)
+shape = SubResource("RectangleShape2D_q267f")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(960, 1112)
+shape = SubResource("RectangleShape2D_q267f")
+
+[node name="Spawner" parent="." groups=["ball spawners"] instance=ExtResource("1_kgd61")]
+position = Vector2(967, 531)
+spawn_scene = ExtResource("2_w8yd2")
+spawn_area = SubResource("RectangleShape2D_h3bqe")
+life_time = 0.0
+
+[node name="LeftGoal" parent="." instance=ExtResource("3_s2bjg")]
+
+[node name="RightGoal" parent="." instance=ExtResource("3_s2bjg")]
+position = Vector2(1920, 0)
+scale = Vector2(-1, 1)
+
+[node name="AsteroidsSpawner" parent="." instance=ExtResource("1_kgd61")]
+position = Vector2(967, 531)
+spawn_scene = ExtResource("4_6j0m2")
+spawn_area = SubResource("RectangleShape2D_l7tvt")
+life_time = 5.0
+spawn_frequency = 3.0
+
+[node name="Vortex" parent="." instance=ExtResource("5_kwupg")]
+position = Vector2(1420, 811)
+scale = Vector2(0.7, 0.7)
+
+[node name="Vortex2" parent="." instance=ExtResource("5_kwupg")]
+position = Vector2(479, 269)
+scale = Vector2(0.7, 0.7)
