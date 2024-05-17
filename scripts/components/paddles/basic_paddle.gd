@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 ## Is this the left paddle? Or the right one?
-@export var side: Global.Direction = Global.Direction.LEFT
+@export var player: Global.Player = Global.Player.LEFT
 
 ## This is how fast your paddle moves.
 @export var speed = 1000.0
@@ -9,7 +9,7 @@ extends CharacterBody2D
 
 func _physics_process(_delta):
 	var direction
-	if side == Global.Direction.RIGHT:
+	if player == Global.Player.RIGHT:
 		direction = Input.get_axis("ui_up", "ui_down")
 	else:
 		direction = Input.get_axis("player_2_up", "player_2_down")

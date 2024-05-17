@@ -11,7 +11,7 @@ func _ready():
 	_spawn_balls()
 
 
-func _spawn_balls(_side = Global.Direction.LEFT):
+func _spawn_balls():
 	for spawner in get_tree().get_nodes_in_group("ball spawners"):
 		var ball = spawner.spawn()
 		ball.touched_paddle.connect(_on_ball_touched_paddle)

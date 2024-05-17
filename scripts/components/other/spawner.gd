@@ -13,7 +13,8 @@ var _default_shape: RectangleShape2D = RectangleShape2D.new()
 @export_range(0.0, 10.0, 0.1, "or_greater") var life_time: float = 3.0
 
 ## Add description here
-@export_range(0.0, 10.0, 0.1, "or_greater") var spawn_period: float = 0.0
+@export_range(0.0, 10.0, 0.1, "or_greater") var spawn_frequency: float = 0.0
+
 
 const _DEBUG_COLOR = Color(1.0, 0.3, 0.7, 0.2)
 const _DEFAULT_SHAPE_SIZE = Vector2(200, 200)
@@ -26,10 +27,10 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 	
-	if spawn_period != 0.0:
+	if spawn_frequency != 0.0:
 		var timer = Timer.new()
 		add_child(timer)
-		timer.wait_time = spawn_period
+		timer.wait_time = spawn_frequency
 		timer.timeout.connect(spawn)
 		timer.start()
 

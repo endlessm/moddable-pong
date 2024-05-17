@@ -1,10 +1,10 @@
 class_name Goal
 extends Area2D
 
-## The side of which player corresponds to this goal?
-@export var side: Global.Direction = Global.Direction.LEFT
+## Which player corresponds to this goal?
+@export var player: Global.Player = Global.Player.LEFT
 
 
 func _on_body_entered(body):
 	if body.is_in_group("balls"):
-		Global.score_goal(body, side)
+		Global.score_goal(body, player)
