@@ -7,8 +7,7 @@ var bounce_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for goal: Goal in get_tree().get_nodes_in_group("goals"):
-		goal.goal_scored.connect(_on_goal_scored)
+	Global.goal_scored.connect(_on_goal_scored)
 	_spawn_balls()
 
 
@@ -29,6 +28,6 @@ func _on_ball_touched_paddle():
 		ball.linear_velocity *= ball_velocity_multiplier
 
 
-func _on_goal_scored(direction):
+func _on_goal_scored(_ball, _side):
 	# TODO: Show "you lose" message instead.
 	get_tree().quit()

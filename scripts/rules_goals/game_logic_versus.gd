@@ -6,9 +6,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for goal: Goal in get_tree().get_nodes_in_group("goals"):
-		goal.goal_scored.connect(_on_goal_scored)
-	_spawn_balls()
+	Global.goal_scored.connect(_on_goal_scored)
 	Global.goals_count_changed.connect(_on_goals_count_changed)
 
 
@@ -30,5 +28,6 @@ func _on_goals_count_changed():
 	hud.set_players_scores(Global.goals_count[Global.Direction.RIGHT], Global.goals_count[Global.Direction.LEFT])
 
 
-func _on_goal_scored(direction):
-	_spawn_balls(direction)
+func _on_goal_scored(_ball, side):
+	Global.set_goals_count(side, Global.goals_count[side] + 1)
+	_spawn_balls(side)
