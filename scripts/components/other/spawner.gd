@@ -53,14 +53,12 @@ func _get_random_point_in_area() -> Vector2:
 	return Vector2(x, y)
 
 
-func spawn(direction = Global.Direction.LEFT):
+func spawn():
 	var node = spawn_scene.instantiate()
 	if life_time != 0.0:
 		var timer = get_tree().create_timer(life_time)
 		timer.timeout.connect(node.queue_free)
 	if spawn_area != null:
 		node.position = _get_random_point_in_area()
-	if node is PhysicsBody2D and direction == Global.Direction.RIGHT:
-		node.linear_velocity = node.linear_velocity.reflect(Vector2.UP)
 	call_deferred("add_child", node)
 	return node

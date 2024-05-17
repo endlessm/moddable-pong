@@ -10,9 +10,19 @@ func _ready():
 	Global.goals_count_changed.connect(_on_goals_count_changed)
 
 
-func _spawn_balls(direction = Global.Direction.LEFT):
+func _spawn_balls(side = Global.Direction.LEFT):
 	for spawner in get_tree().get_nodes_in_group("ball spawners"):
-		var ball = spawner.spawn(direction)
+		var ball = spawner.spawn()
+
+		# Force the ball to move in the direction corresponding to the provided
+		# side. Use Vector2.from_angle to convert ball.initial_direction to a
+		# vector, which is convenient for determining its horizontal direction.
+		var ball_vector = Vector2.from_angle(ball.initial_direction)
+		if side == Global.Direction.LEFT and ball_vector.x < 0:
+			ball.initial_direction = ball_vector.reflect(Vector2.UP).angle()
+		elif side == Global.Direction.RIGHT and ball_vector.x > 0:
+			ball.initial_direction = ball_vector.reflect(Vector2.UP).angle()
+
 		ball.touched_paddle.connect(_on_ball_touched_paddle)
 
 

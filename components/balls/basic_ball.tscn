@@ -16,7 +16,6 @@ physics_material_override = SubResource("PhysicsMaterial_c3m63")
 continuous_cd = 1
 max_contacts_reported = 1
 contact_monitor = true
-linear_velocity = Vector2(-500, -500)
 script = ExtResource("1_kv14h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
