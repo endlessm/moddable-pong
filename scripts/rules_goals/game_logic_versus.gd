@@ -38,6 +38,7 @@ func _on_goals_count_changed():
 	hud.set_players_scores(Global.goals_count[Global.Direction.RIGHT], Global.goals_count[Global.Direction.LEFT])
 
 
-func _on_goal_scored(_ball, side):
+func _on_goal_scored(ball, side):
 	Global.set_goals_count(side, Global.goals_count[side] + 1)
+	ball.queue_free()
 	_spawn_balls(side)
