@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh5ty3tgam2gp"]
+[gd_scene load_steps=8 format=3 uid="uid://bh5ty3tgam2gp"]
 
 [ext_resource type="Texture2D" uid="uid://1fcfep77mg20" path="res://assets/spaces/galaxy_space.png" id="1_epiid"]
 [ext_resource type="PackedScene" uid="uid://cg1m4evi8c35o" path="res://components/other/spawner.tscn" id="1_kgd61"]
-[ext_resource type="PackedScene" uid="uid://c7l70grmkauij" path="res://components/balls/basic_ball.tscn" id="2_w8yd2"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_s2bjg"]
 [ext_resource type="PackedScene" uid="uid://bg8qfa6xrifm1" path="res://components/other/asteroid.tscn" id="4_6j0m2"]
 [ext_resource type="PackedScene" uid="uid://by7bpdpur84xu" path="res://components/other/vortex.tscn" id="5_kwupg"]
@@ -12,9 +11,6 @@ size = Vector2(1936, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7tvt"]
 size = Vector2(1600, 750)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3bqe"]
-size = Vector2(10, 1080)
 
 [node name="GalaxySpace" type="Node2D"]
 
@@ -58,13 +54,8 @@ position = Vector2(479, 269)
 
 [node name="AsteroidsSpawner" parent="." instance=ExtResource("1_kgd61")]
 position = Vector2(967, 531)
-spawn_scene = ExtResource("4_6j0m2")
 spawn_area = SubResource("RectangleShape2D_l7tvt")
 life_time = 5.0
 spawn_frequency = 3.0
 
-[node name="Spawner" parent="." groups=["ball spawners"] instance=ExtResource("1_kgd61")]
-position = Vector2(967, 531)
-spawn_scene = ExtResource("2_w8yd2")
-spawn_area = SubResource("RectangleShape2D_h3bqe")
-life_time = 0.0
+[node name="Asteroid" parent="AsteroidsSpawner" instance=ExtResource("4_6j0m2")]

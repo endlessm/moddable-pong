@@ -3,9 +3,6 @@ extends Node2D
 
 var _default_shape: RectangleShape2D = RectangleShape2D.new()
 
-## The component that will be spawned.
-@export var spawn_scene: PackedScene
-
 ## The spawn will happen at a random point inside this area.
 @export var spawn_area: Shape2D = _default_shape
 
@@ -18,6 +15,8 @@ var _default_shape: RectangleShape2D = RectangleShape2D.new()
 const _DEBUG_COLOR = Color(1.0, 0.3, 0.7, 0.2)
 const _DEFAULT_SHAPE_SIZE = Vector2(200, 200)
 
+var _nodes = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +25,11 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 	
+	for node in get_children():
+		if node is Node2D:
+			remove_child(node)
+			_nodes.append(node)
+
 	if spawn_frequency != 0.0:
 		var timer = Timer.new()
 		add_child(timer)
@@ -53,8 +57,13 @@ func _get_random_point_in_area() -> Vector2:
 	return Vector2(x, y)
 
 
+func _get_random_node():
+	var i = randi() % _nodes.size()
+	return _nodes[i]
+
+
 func spawn():
-	var node = spawn_scene.instantiate()
+	var node = _get_random_node().duplicate()
 	if life_time != 0.0:
 		var timer = get_tree().create_timer(life_time)
 		timer.timeout.connect(node.queue_free)

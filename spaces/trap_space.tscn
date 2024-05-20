@@ -1,16 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjvkxd1k6hcus"]
+[gd_scene load_steps=8 format=3 uid="uid://bjvkxd1k6hcus"]
 
 [ext_resource type="Texture2D" uid="uid://b1blrsjderjjs" path="res://assets/spaces/trap_space.png" id="1_d6xnt"]
-[ext_resource type="PackedScene" uid="uid://cg1m4evi8c35o" path="res://components/other/spawner.tscn" id="1_l6iha"]
-[ext_resource type="PackedScene" uid="uid://c7l70grmkauij" path="res://components/balls/basic_ball.tscn" id="2_fvskk"]
 [ext_resource type="Texture2D" uid="uid://byaw6586mq2b" path="res://assets/spaces/walls.png" id="2_h2emq"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_ih2ia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q267f"]
 size = Vector2(1936, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3bqe"]
-size = Vector2(10, 500)
 
 [sub_resource type="Animation" id="Animation_ndj6j"]
 length = 0.001
@@ -126,12 +121,6 @@ patch_margin_right = 64
 patch_margin_bottom = 64
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-
-[node name="Spawner" parent="." groups=["ball spawners"] instance=ExtResource("1_l6iha")]
-position = Vector2(967, 545)
-spawn_scene = ExtResource("2_fvskk")
-spawn_area = SubResource("RectangleShape2D_h3bqe")
-life_time = 0.0
 
 [node name="LeftGoal" parent="." instance=ExtResource("3_ih2ia")]
 
