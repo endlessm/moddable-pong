@@ -9,6 +9,8 @@ extends RigidBody2D
 ## The ball will rotate its direction randomly. Zero is no random at all.
 @export_range(0, 180, 1, "radians_as_degrees") var random_angle: float = 0.5
 
+const _INITIAL_ANGULAR_VELOCITY = 10.0
+
 signal touched_paddle
 
 
@@ -18,7 +20,7 @@ func _ready():
 
 func reset():
 	linear_velocity = Vector2.from_angle(initial_direction) * initial_speed
-	angular_velocity = 0.0
+	angular_velocity = _INITIAL_ANGULAR_VELOCITY
 
 
 func _on_body_entered(body):
