@@ -1,16 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg8ibi18um3vg"]
+[gd_scene load_steps=4 format=3 uid="uid://cg8ibi18um3vg"]
 
-[ext_resource type="PackedScene" uid="uid://cg1m4evi8c35o" path="res://components/other/spawner.tscn" id="1_rgyjw"]
-[ext_resource type="PackedScene" uid="uid://c7l70grmkauij" path="res://components/balls/basic_ball.tscn" id="2_fpedn"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_2llkd"]
+[ext_resource type="Texture2D" uid="uid://dpjed81hhensu" path="res://assets/spaces/basic_space.png" id="4_fsf6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q267f"]
 size = Vector2(1936, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3bqe"]
-size = Vector2(10, 1080)
-
 [node name="BasicSpace" type="Node2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_fsf6n")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="Walls" type="RigidBody2D" parent="."]
 collision_layer = 4
@@ -26,12 +33,6 @@ shape = SubResource("RectangleShape2D_q267f")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2(960, 1112)
 shape = SubResource("RectangleShape2D_q267f")
-
-[node name="Spawner" parent="." groups=["ball spawners"] instance=ExtResource("1_rgyjw")]
-position = Vector2(967, 531)
-spawn_scene = ExtResource("2_fpedn")
-spawn_area = SubResource("RectangleShape2D_h3bqe")
-life_time = 0.0
 
 [node name="LeftGoal" parent="." instance=ExtResource("3_2llkd")]
 
