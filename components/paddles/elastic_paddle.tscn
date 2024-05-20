@@ -13,8 +13,9 @@ script = ExtResource("1_nvsnh")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 unique_name_in_owner = true
+offset_left = -64.0
 offset_top = -64.0
-offset_right = 128.0
+offset_right = 64.0
 offset_bottom = 64.0
 texture = ExtResource("2_42nqy")
 patch_margin_left = 64
@@ -24,5 +25,4 @@ patch_margin_bottom = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(64, 0)
 shape = SubResource("RectangleShape2D_bbbjr")

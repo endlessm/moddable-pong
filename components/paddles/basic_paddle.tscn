@@ -13,10 +13,8 @@ script = ExtResource("1_uxuxq")
 texture = ExtResource("2_3vvgv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(64, 0)
 shape = SubResource("RectangleShape2D_bbbjr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(64, 0)
 texture = ExtResource("2_3vvgv")

@@ -12,7 +12,7 @@ extends CharacterBody2D
 	set = _set_texture
 
 var _original_texture
-
+@onready var _sprite = %Sprite2D
 
 func _set_texture(new_texture):
 	if not Engine.is_editor_hint():
@@ -20,15 +20,17 @@ func _set_texture(new_texture):
 	if _original_texture == null:
 		_original_texture = texture
 	texture = new_texture
+	if _sprite == null:
+		return
 	if texture != null:
-		%Sprite2D.texture = texture
+		_sprite.texture = texture
 	else:
-		%Sprite2D.texture = _original_texture
+		_sprite.texture = _original_texture
 
 
 func _ready():
 	if Engine.is_editor_hint():
-		_set_texture(%Sprite2D.texture)
+		_set_texture(_sprite.texture)
 
 
 func _physics_process(_delta):

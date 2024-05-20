@@ -1,17 +1,28 @@
+@tool
 extends CharacterBody2D
 
 ## Is this the left paddle? Or the right one?
-@export var side: Global.Direction = Global.Direction.LEFT
+@export var player: Global.Player = Global.Player.LEFT:
+	set = _set_player
 
 ## This is how fast your paddle moves.
 @export var speed = 1000.0
 
 
+func _set_player(new_player):
+	if not Engine.is_editor_hint():
+		await ready
+	player = new_player
+	%Sprite2D.flip_h = player == Global.Player.RIGHT
+
+
 func _physics_process(_delta):
+	if Engine.is_editor_hint():
+		return
 	var direction: Vector2
-	if side == Global.Direction.RIGHT:
-		direction.x = Input.get_axis("ui_up", "ui_down")
-		direction.y = Input.get_axis("ui_left", "ui_right")
+	if player == Global.Player.RIGHT:
+		direction.x = Input.get_axis("ui_left", "ui_right")
+		direction.y = Input.get_axis("ui_up", "ui_down")
 	else:
 		direction.x = Input.get_axis("player_2_left", "player_2_right")
 		direction.y = Input.get_axis("player_2_up", "player_2_down")
