@@ -21,11 +21,12 @@ linear_velocity = Vector2(353.553, 353.553)
 script = ExtResource("1_kv14h")
 texture = ExtResource("2_ndlr6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_sntrn")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture = ExtResource("2_ndlr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_sntrn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
