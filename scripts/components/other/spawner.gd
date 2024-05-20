@@ -21,6 +21,7 @@ var _nodes = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_default_shape.set_size(_DEFAULT_SHAPE_SIZE)
+	update_configuration_warnings()
 
 	if Engine.is_editor_hint():
 		return
@@ -36,6 +37,13 @@ func _ready():
 		timer.wait_time = spawn_frequency
 		timer.timeout.connect(spawn)
 		timer.start()
+
+
+func _get_configuration_warnings():
+		var warnings = []
+		if get_child_count() == 0:
+			warnings.append("Nothing to spawn. Please add childrens to the Spawner node.")
+		return warnings
 
 
 func _draw():
