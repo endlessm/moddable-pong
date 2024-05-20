@@ -26,8 +26,6 @@ signal touched_paddle
 
 
 func _set_size(new_size):
-	if not Engine.is_editor_hint():
-		await ready
 	size = new_size
 	if _shape == null or _sprite == null:
 		return
