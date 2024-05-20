@@ -1,9 +1,13 @@
 extends Node
 
-## If not zero, the ball velocity will be multiplied by this number each time it bounces on a paddle.
-@export_range(0.0, 10.0, 0.1, "or_greater") var ball_velocity_multiplier: float = 0.0
+## The ball velocity will be multiplied by this number each time it bounces on a paddle.
+@export_range(0.5, 2.0, 0.1) var ball_velocity_multiplier: float = 1.0
 
-var bounce_count = 0
+## The ball size will be multiplied by this number each time it bounces on a paddle.
+@export_range(0.8, 1.2, 0.1) var ball_size_multiplier: float = 1.0
+
+var _bounce_count = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,15 +21,27 @@ func _spawn_balls():
 		ball.touched_paddle.connect(_on_ball_touched_paddle)
 
 
-func _on_ball_touched_paddle():
-	bounce_count += 1
-	var hud = get_tree().get_first_node_in_group("hud")
-	hud.set_players_scores(bounce_count, bounce_count)
-
-	if ball_velocity_multiplier == 0:
+func _update_balls_velocity():
+	if ball_velocity_multiplier == 1:
 		return
 	for ball in get_tree().get_nodes_in_group("balls"):
 		ball.linear_velocity *= ball_velocity_multiplier
+
+
+func _update_balls_size():
+	if ball_size_multiplier == 1:
+		return
+	for ball in get_tree().get_nodes_in_group("balls"):
+		ball.size *= ball_size_multiplier
+
+
+func _on_ball_touched_paddle():
+	_bounce_count += 1
+	var hud = get_tree().get_first_node_in_group("hud")
+	hud.set_players_scores(_bounce_count, _bounce_count)
+
+	_update_balls_velocity()
+	_update_balls_size()
 
 
 func _on_goal_scored(_ball, _side):

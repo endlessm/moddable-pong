@@ -7,27 +7,42 @@ extends RigidBody2D
 ## This is the initial angle of the ball.
 @export_range(-180, 180, 1.0, "radians_as_degrees") var initial_direction : float = PI/4
 
+## How big is this ball?
+@export_range(0.1, 5.0, 0.1) var size: float = 1.0:
+	set = _set_size
+
 ## Use this to change the texture of the ball.
 @export var texture: Texture2D = null:
 	set = _set_texture
 
-var _original_texture
+var _initial_texture
+const _INITIAL_RADIUS = 64
+
+@onready var _shape = %CollisionShape2D
 @onready var _sprite = %Sprite2D
 signal touched_paddle
+
+
+func _set_size(new_size):
+	size = new_size
+	if _shape == null or _sprite == null:
+		return
+	_shape.shape.radius = _INITIAL_RADIUS * size
+	_sprite.scale = Vector2(size, size)
 
 
 func _set_texture(new_texture):
 	if not Engine.is_editor_hint():
 		await ready
-	if _original_texture == null:
-		_original_texture = texture
+	if _initial_texture == null:
+		_initial_texture = texture
 	texture = new_texture
 	if _sprite == null:
 		return
 	if texture != null:
 		_sprite.texture = texture
 	else:
-		_sprite.texture = _original_texture
+		_sprite.texture = _initial_texture
 
 
 func _ready():
