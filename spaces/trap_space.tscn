@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjvkxd1k6hcus"]
+[gd_scene load_steps=9 format=3 uid="uid://bjvkxd1k6hcus"]
 
 [ext_resource type="Texture2D" uid="uid://b1blrsjderjjs" path="res://assets/spaces/trap_space.png" id="1_d6xnt"]
+[ext_resource type="Script" path="res://scripts/spaces/trap_space.gd" id="1_olh01"]
 [ext_resource type="Texture2D" uid="uid://byaw6586mq2b" path="res://assets/spaces/walls.png" id="2_h2emq"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_ih2ia"]
 
@@ -71,6 +72,7 @@ _data = {
 }
 
 [node name="TrapSpace" type="Node2D"]
+script = ExtResource("1_olh01")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 offset_right = 1920.0
@@ -129,6 +131,7 @@ position = Vector2(1920, 0)
 scale = Vector2(-1, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_n6ke7")
 }
