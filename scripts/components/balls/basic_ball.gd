@@ -54,6 +54,7 @@ func _ready():
 func reset():
 	linear_velocity = Vector2.from_angle(initial_direction) * initial_speed
 	angular_velocity = 0.0
+	_set_size(size)
 
 
 func _on_body_entered(body):

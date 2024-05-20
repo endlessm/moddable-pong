@@ -40,7 +40,7 @@ func _ready():
 func reset():
 	linear_velocity = Vector2.from_angle(initial_direction) * initial_speed
 	angular_velocity = _INITIAL_ANGULAR_VELOCITY
-
+	_set_size(size)
 
 func _on_body_entered(body):
 	var angle = randf_range(-random_angle, random_angle)
