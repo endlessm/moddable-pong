@@ -52,6 +52,14 @@ extends Node
 ## Which player should receive the points when the ball touches an obstacle?
 @export var obstacle_touched_player: Global.Player = Global.Player.RIGHT
 
+@export_group("End Game Condition")
+
+## End the game when a ball scores?
+@export var end_on_goal_reached: bool = false
+
+## End the game when a ball touches an obstacle?
+@export var end_on_obstacle_touched: bool = false
+
 @export_group("Ball Properties")
 
 ## The ball velocity will be multiplied by this number each time it bounces on a paddle.
@@ -84,8 +92,7 @@ func _spawn_balls(player = Global.Player.LEFT):
 			ball.initial_direction = ball_vector.reflect(Vector2.UP).angle()
 
 		ball.touched_paddle.connect(_on_ball_touched_paddle)
-		if on_obstacle_touched:
-			ball.touched_obstacle.connect(_on_ball_touched_obstacle)
+		ball.touched_obstacle.connect(_on_ball_touched_obstacle)
 
 
 func _update_balls_velocity():
@@ -110,10 +117,18 @@ func _on_ball_touched_paddle():
 
 
 func _on_ball_touched_obstacle():
-	Global.add_score(obstacle_touched_player, obstacle_touched_points)
+	if end_on_obstacle_touched:
+		# TODO: Show "you lose" message instead.
+		get_tree().quit()
+	if on_obstacle_touched:
+		Global.add_score(obstacle_touched_player, obstacle_touched_points)
 
 
 func _on_goal_scored(ball, player):
+	if end_on_goal_reached:
+		# TODO: Show "you lose" message instead.
+		get_tree().quit()
+
 	if on_goal_left_reached and player == Global.Player.LEFT:
 		Global.add_score(goal_left_reached_player, goal_left_reached_points)
 	elif on_goal_right_reached and player == Global.Player.RIGHT:
