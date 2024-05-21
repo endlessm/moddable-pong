@@ -21,6 +21,7 @@ const _INITIAL_RADIUS = 64
 @onready var _shape = %CollisionShape2D
 @onready var _sprite = %Sprite2D
 signal touched_paddle
+signal touched_obstacle
 
 
 func _set_size(new_size):
@@ -60,3 +61,5 @@ func reset():
 func _on_body_entered(body):
 	if body.is_in_group("paddles"):
 		touched_paddle.emit()
+	elif body.is_in_group("obstacles"):
+		touched_obstacle.emit()

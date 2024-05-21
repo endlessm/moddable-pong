@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bemeakmfsoeyf" path="res://assets/spaces/asteroid.png" id="1_d1o4w"]
 
-[node name="Asteroid" type="RigidBody2D"]
+[node name="Asteroid" type="RigidBody2D" groups=["obstacles"]]
 collision_layer = 8
 collision_mask = 8
 mass = 1000.0

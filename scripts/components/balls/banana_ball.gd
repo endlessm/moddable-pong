@@ -23,6 +23,7 @@ const _INITIAL_HEIGHT = 176
 @onready var _sprite = %Sprite2D
 
 signal touched_paddle
+signal touched_obstacle
 
 
 func _set_size(new_size):
@@ -47,3 +48,5 @@ func _on_body_entered(body):
 	linear_velocity = linear_velocity.rotated(angle)
 	if body.is_in_group("paddles"):
 		touched_paddle.emit()
+	elif body.is_in_group("obstacles"):
+		touched_obstacle.emit()
