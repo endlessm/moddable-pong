@@ -1,5 +1,13 @@
 extends Node
 
+@export_group("Initial score")
+
+## Initial score of the left player
+@export var left_initial_score: int = 0
+
+## Initial score of the right player
+@export var right_initial_score: int = 0
+
 @export_group("Scoring On Goal Left")
 
 ## Score when the goal belonging to the left player is reached?
@@ -56,6 +64,9 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.goal_scored.connect(_on_goal_scored)
+	await Global.hud_added
+	Global.add_score(Global.Player.LEFT, left_initial_score)
+	Global.add_score(Global.Player.RIGHT, right_initial_score)
 	_spawn_balls()
 
 

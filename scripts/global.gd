@@ -8,6 +8,7 @@ var score = {
 	Player.RIGHT: 0,
 }
 
+signal hud_added
 signal score_changed()
 signal goal_scored(ball, player)
 
