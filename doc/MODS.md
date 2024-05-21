@@ -12,6 +12,12 @@ now increase its velocity every time it hits a paddle.
 
 ## Rules
 
+### Allow the paddles to move left and right
+
+Select any `BasicPaddle` node from the Scene Dock. In the inspector,
+turn the `Tennis Movement` property on or off depending on if you want the
+paddle to be able to move left and right.
+
 ## Space
 
 Try replacing the `BasicSpace` node in the Scene Dock by removing it

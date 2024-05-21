@@ -62,6 +62,7 @@ player_2_right={
 2d_physics/layer_4="other"
 2d_physics/layer_5="left goal"
 2d_physics/layer_6="right goal"
+2d_physics/layer_7="paddle bounds"
 
 [physics]
 

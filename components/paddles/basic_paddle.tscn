@@ -7,9 +7,10 @@
 size = Vector2(128, 384)
 
 [node name="BasicPaddle" type="CharacterBody2D" groups=["paddles"]]
-collision_mask = 4
+collision_mask = 68
 motion_mode = 1
 script = ExtResource("1_uxuxq")
+tennis_movement = null
 texture = ExtResource("2_3vvgv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
