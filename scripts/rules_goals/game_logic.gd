@@ -22,6 +22,28 @@ extends Node
 ## Which player should receive the points when the goal at the right is reached?
 @export var goal_right_reached_player: Global.Player = Global.Player.LEFT
 
+@export_group("Scoring On Paddle Touched")
+
+## Score when the ball touches the paddles?
+@export var on_paddle_touched: bool = false
+
+## How much to score when the ball touches the paddles?
+@export var paddle_touched_points: int = 1
+
+## Which player should receive the points when the ball touches the paddles?
+@export var paddle_touched_player: Global.Player = Global.Player.RIGHT
+
+@export_group("Scoring On Obstacles Touched")
+
+## Score when the ball touches an obstacle?
+@export var on_obstacle_touched: bool = false
+
+## How much to score when the ball touches an obstacle?
+@export var obstacle_touched_points: int = 1
+
+## Which player should receive the points when the ball touches an obstacle?
+@export var obstacle_touched_player: Global.Player = Global.Player.RIGHT
+
 @export_group("Ball Properties")
 
 ## The ball velocity will be multiplied by this number each time it bounces on a paddle.
@@ -51,6 +73,8 @@ func _spawn_balls(player = Global.Player.LEFT):
 			ball.initial_direction = ball_vector.reflect(Vector2.UP).angle()
 
 		ball.touched_paddle.connect(_on_ball_touched_paddle)
+		if on_obstacle_touched:
+			ball.touched_obstacle.connect(_on_ball_touched_obstacle)
 
 
 func _update_balls_velocity():
@@ -70,6 +94,12 @@ func _update_balls_size():
 func _on_ball_touched_paddle():
 	_update_balls_velocity()
 	_update_balls_size()
+	if on_paddle_touched:
+		Global.add_score(paddle_touched_player, paddle_touched_points)
+
+
+func _on_ball_touched_obstacle():
+	Global.add_score(obstacle_touched_player, obstacle_touched_points)
 
 
 func _on_goal_scored(ball, player):
