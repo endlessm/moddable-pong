@@ -1,22 +1,25 @@
 extends Node
 
-enum Player {LEFT, RIGHT}
+enum Player {LEFT, RIGHT, BOTH}
 
-## Counts the goals in each direction.
-var goals_count = {
+## Stores the score for each player.
+var score = {
 	Player.LEFT: 0,
 	Player.RIGHT: 0,
 }
 
-signal goals_count_changed()
+signal hud_added
+signal score_changed()
 signal goal_scored(ball, player)
 
 func score_goal(ball: RigidBody2D, player: Player):
 	goal_scored.emit(ball, player)
 
 
-func set_goals_count(player: Player, value: int):
-	var previous_value = goals_count[player]
-	goals_count[player] = value
-	if previous_value != value:
-		goals_count_changed.emit()
+func add_score(player: Player, value: int):
+	if player == Player.BOTH:
+		score[Player.RIGHT] += value
+		score[Player.LEFT] += value
+	else:
+		score[player] += value
+	score_changed.emit()
