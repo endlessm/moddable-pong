@@ -4,6 +4,16 @@ Mini games from [Endless OS Foundation](https://endlessos.org) intended to help 
 
 See the `doc/` folder inside each game's subdirectory for more information on each game!
 
+## Opening Projects
+
+For now:
+
+1. Clone this repository (or download it as a zip and extract it)
+2. Open Godot; from the Project Manager window select **Import** and navigate to the folder for this repository
+3. Select the subdirectory for the game you want to import (e.g. `pong`)
+
+We plan to export these minigames somewhere more accessible, e.g. as realease on GitHub or to Itch.io in the future. 
+
 ## Contributing
 
 This repo is being developed internally based on the needs and active pilots of the Endless learning team. Endless team members should **communicate openly with the team to avoid potential merge conflicts**, as we are still learning best practices for collaborative development of a Godot project.
