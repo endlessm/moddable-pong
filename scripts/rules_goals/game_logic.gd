@@ -1,5 +1,29 @@
 extends Node
 
+@export_group("Scoring On Goal Left")
+
+## Score when the goal belonging to the left player is reached?
+@export var on_goal_left_reached: bool = true
+
+## How much to score when the goal at the left is reached?
+@export var goal_left_reached_points: int = 1
+
+## Which player should receive the points when the goal at the left is reached?
+@export var goal_left_reached_player: Global.Player = Global.Player.RIGHT
+
+@export_group("Scoring On Goal Right")
+
+## Score when the goal belonging to the right player is reached?
+@export var on_goal_right_reached: bool = true
+
+## How much to score when the goal at the right is reached?
+@export var goal_right_reached_points: int = 1
+
+## Which player should receive the points when the goal at the right is reached?
+@export var goal_right_reached_player: Global.Player = Global.Player.LEFT
+
+@export_group("Ball Properties")
+
 ## The ball velocity will be multiplied by this number each time it bounces on a paddle.
 @export_range(0.5, 2.0, 0.1) var ball_velocity_multiplier: float = 1.0
 
@@ -9,7 +33,6 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.goal_scored.connect(_on_goal_scored)
 	Global.goals_count_changed.connect(_on_goals_count_changed)
 	_spawn_balls()
 
@@ -55,6 +78,9 @@ func _on_goals_count_changed():
 
 
 func _on_goal_scored(ball, player):
-	Global.set_goals_count(player, Global.goals_count[player] + 1)
+	if on_goal_left_reached and player == Global.Player.LEFT:
+		Global.set_goals_count(goal_left_reached_player, Global.goals_count[goal_left_reached_player] + goal_left_reached_points)
+	elif on_goal_right_reached and player == Global.Player.RIGHT:
+		Global.set_goals_count(goal_right_reached_player, Global.goals_count[goal_right_reached_player] + goal_right_reached_points)
 	ball.queue_free()
 	_spawn_balls(player)
