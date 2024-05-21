@@ -33,7 +33,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.goals_count_changed.connect(_on_goals_count_changed)
+	Global.goal_scored.connect(_on_goal_scored)
 	_spawn_balls()
 
 
@@ -72,15 +72,10 @@ func _on_ball_touched_paddle():
 	_update_balls_size()
 
 
-func _on_goals_count_changed():
-	var hud = get_tree().get_first_node_in_group("hud")
-	hud.set_players_scores(Global.goals_count[Global.Player.RIGHT], Global.goals_count[Global.Player.LEFT])
-
-
 func _on_goal_scored(ball, player):
 	if on_goal_left_reached and player == Global.Player.LEFT:
-		Global.set_goals_count(goal_left_reached_player, Global.goals_count[goal_left_reached_player] + goal_left_reached_points)
+		Global.add_score(goal_left_reached_player, goal_left_reached_points)
 	elif on_goal_right_reached and player == Global.Player.RIGHT:
-		Global.set_goals_count(goal_right_reached_player, Global.goals_count[goal_right_reached_player] + goal_right_reached_points)
+		Global.add_score(goal_right_reached_player, goal_right_reached_points)
 	ball.queue_free()
 	_spawn_balls(player)
