@@ -2,7 +2,8 @@
 extends CharacterBody2D
 
 ## Is this the left paddle? Or the right one?
-@export var player: Global.Player = Global.Player.LEFT
+@export var player: Global.Player = Global.Player.LEFT:
+	set = _set_player
 
 ## This is how fast your paddle moves.
 @export var speed = 1000.0
@@ -16,6 +17,12 @@ extends CharacterBody2D
 
 var _original_texture
 @onready var _sprite = %Sprite2D
+
+func _set_player(new_player):
+	if not Engine.is_editor_hint():
+		await ready
+	player = new_player
+	%Sprite2D.flip_h = player == Global.Player.RIGHT
 
 func _set_texture(new_texture):
 	if not Engine.is_editor_hint():

@@ -21,7 +21,6 @@ tennis_movement = false
 
 [node name="BasicPaddleRight" parent="." instance=ExtResource("1_xxpg5")]
 position = Vector2(1856, 512)
-scale = Vector2(-1, -1)
 player = 1
 tennis_movement = false
 
@@ -31,6 +30,7 @@ spawn_area = SubResource("RectangleShape2D_guyqd")
 life_time = 0.0
 
 [node name="BasicBall" parent="BallSpawner" instance=ExtResource("4_rffv2")]
+linear_velocity = Vector2(353.553, 353.553)
 
 [node name="GameLogicVersus" parent="." instance=ExtResource("3_umelw")]
 
