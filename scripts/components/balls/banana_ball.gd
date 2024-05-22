@@ -47,6 +47,9 @@ func _on_body_entered(body):
 	var angle = randf_range(-random_angle, random_angle)
 	linear_velocity = linear_velocity.rotated(angle)
 	if body.is_in_group("paddles"):
+		$PaddleAudioStreamPlayer.play()
 		touched_paddle.emit()
-	elif body.is_in_group("obstacles"):
-		touched_obstacle.emit()
+	else:
+		$WallAudioStreamPlayer.play()
+		if body.is_in_group("obstacles"):
+			touched_obstacle.emit()
