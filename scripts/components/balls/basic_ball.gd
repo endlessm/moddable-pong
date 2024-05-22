@@ -60,6 +60,9 @@ func reset():
 
 func _on_body_entered(body):
 	if body.is_in_group("paddles"):
+		$PaddleAudioStreamPlayer.play()
 		touched_paddle.emit()
-	elif body.is_in_group("obstacles"):
-		touched_obstacle.emit()
+	else:
+		$WallAudioStreamPlayer.play()
+		if body.is_in_group("obstacles"):
+			touched_obstacle.emit()
