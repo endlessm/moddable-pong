@@ -6,11 +6,19 @@
 
 ### Gradual increase of ball speed during gameplay
 
-Select the `GameLogicVersus` node from the Scene Dock. In the Inspector,
-adjust the `Ball Velocity Multiplier` to have a value above 1. The ball will
-now increase its velocity every time it hits a paddle.
+Select the `GameLogic` node from the Scene Dock. In the Inspector
+under `Ball Properties`, adjust the `Ball Velocity Multiplier` to have
+a value above 1. The ball will now increase its velocity every time it
+hits a paddle. What about changing the `Ball Size Multiplier` instead?
+Which value makes the game easier and which makes it harder?
 
 ## Rules
+
+### Cooperative mode
+
+Select the `GameLogic` node from the Scene Dock. Can you use the
+properties in the Inspector under `Scoring...` sections to convert the
+game from versus mode to a cooperative mode?
 
 ### Allow the paddles to move left and right
 
