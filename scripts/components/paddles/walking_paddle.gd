@@ -6,17 +6,17 @@ extends CharacterBody2D
 	set = _set_player
 
 ## This is how fast your paddle moves.
-@export var speed = 1000.0
+@export var speed: float = 1000.0
 
 
-func _set_player(new_player):
+func _set_player(new_player: Global.Player):
 	if not Engine.is_editor_hint():
 		await ready
 	player = new_player
 	%Sprite2D.flip_h = player == Global.Player.RIGHT
 
 
-func _physics_process(_delta):
+func _physics_process(_delta: float):
 	if Engine.is_editor_hint():
 		return
 	var direction: Vector2

@@ -15,7 +15,7 @@ var _default_shape: RectangleShape2D = RectangleShape2D.new()
 const _DEBUG_COLOR = Color(1.0, 0.3, 0.7, 0.2)
 const _DEFAULT_SHAPE_SIZE = Vector2(200, 200)
 
-var _nodes = []
+var _nodes: Array[Node2D] = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,7 +39,7 @@ func _ready():
 		timer.start()
 
 
-func _get_configuration_warnings():
+func _get_configuration_warnings() -> PackedStringArray:
 		var warnings = []
 		if get_child_count() == 0:
 			warnings.append("Nothing to spawn. Please add childrens to the Spawner node.")
@@ -53,7 +53,7 @@ func _draw():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(_delta: float):
 	if Engine.is_editor_hint() or get_tree().is_debugging_collisions_hint():
 		queue_redraw()
 
@@ -65,7 +65,7 @@ func _get_random_point_in_area() -> Vector2:
 	return Vector2(x, y)
 
 
-func _get_random_node():
+func _get_random_node() -> Node2D:
 	var i = randi() % _nodes.size()
 	return _nodes[i]
 
