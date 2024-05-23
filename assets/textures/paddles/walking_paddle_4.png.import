@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1fcfep77mg20"
-path="res://.godot/imported/galaxy_space.png-4aba851dfd1dc0b01f418da86c540ec2.ctex"
+uid="uid://cf515iccs5f23"
+path="res://.godot/imported/walking_paddle_4.png-44d752584cfd39404a737b1370d99165.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spaces/galaxy_space.png"
-dest_files=["res://.godot/imported/galaxy_space.png-4aba851dfd1dc0b01f418da86c540ec2.ctex"]
+source_file="res://assets/textures/paddles/walking_paddle_4.png"
+dest_files=["res://.godot/imported/walking_paddle_4.png-44d752584cfd39404a737b1370d99165.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpjed81hhensu"
-path="res://.godot/imported/basic_space.png-60bd0fbf2e8a52760ed7e1c316d1c925.ctex"
+uid="uid://1fcfep77mg20"
+path="res://.godot/imported/galaxy_space.png-95a91b6334d74980ec318f116d0fdb94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spaces/basic_space.png"
-dest_files=["res://.godot/imported/basic_space.png-60bd0fbf2e8a52760ed7e1c316d1c925.ctex"]
+source_file="res://assets/textures/spaces/galaxy_space.png"
+dest_files=["res://.godot/imported/galaxy_space.png-95a91b6334d74980ec318f116d0fdb94.ctex"]
 
 [params]
 

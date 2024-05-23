@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo8lekmg37u44"
-path="res://.godot/imported/walking_paddle.png-d766688ddd1d2cd0a529e17a9c80884f.ctex"
+uid="uid://c44objcqpu6sl"
+path="res://.godot/imported/line.png-75e56c4de092cfd21095050103eed50c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/paddles/walking_paddle.png"
-dest_files=["res://.godot/imported/walking_paddle.png-d766688ddd1d2cd0a529e17a9c80884f.ctex"]
+source_file="res://assets/textures/hud/line.png"
+dest_files=["res://.godot/imported/line.png-75e56c4de092cfd21095050103eed50c.ctex"]
 
 [params]
 

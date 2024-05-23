@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1inf1kpv25ls"
-path="res://.godot/imported/elastic_paddle.png-d6e4cb75326089cc271c1ba9f89448ad.ctex"
+uid="uid://bemeakmfsoeyf"
+path="res://.godot/imported/asteroid.png-7f68fa2263ce70f29a5039d9b63a8a45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/paddles/elastic_paddle.png"
-dest_files=["res://.godot/imported/elastic_paddle.png-d6e4cb75326089cc271c1ba9f89448ad.ctex"]
+source_file="res://assets/textures/spaces/asteroid.png"
+dest_files=["res://.godot/imported/asteroid.png-7f68fa2263ce70f29a5039d9b63a8a45.ctex"]
 
 [params]
 
