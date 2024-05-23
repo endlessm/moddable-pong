@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bb52xx0oi1pkc"]
 
 [ext_resource type="Script" path="res://scripts/components/balls/banana_ball.gd" id="1_6w3xg"]
-[ext_resource type="Texture2D" uid="uid://1ghbd8r5gklq" path="res://assets/balls/banana_ball.png" id="2_mt4lr"]
+[ext_resource type="Texture2D" uid="uid://1ghbd8r5gklq" path="res://assets/textures/balls/banana_ball.png" id="2_mt4lr"]
 [ext_resource type="AudioStream" uid="uid://c2ueq12grpul3" path="res://assets/audio/banana_wall_hit.ogg" id="3_hef1k"]
 [ext_resource type="AudioStream" uid="uid://qnh5hdpshdn0" path="res://assets/audio/paddle_hit.ogg" id="4_3r7fx"]
 
