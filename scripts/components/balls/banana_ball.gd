@@ -26,7 +26,7 @@ signal touched_paddle
 signal touched_obstacle
 
 
-func _set_size(new_size):
+func _set_size(new_size: float):
 	size = new_size
 	if _shape == null or _sprite == null:
 		return
@@ -43,7 +43,7 @@ func reset():
 	angular_velocity = _INITIAL_ANGULAR_VELOCITY
 	_set_size(size)
 
-func _on_body_entered(body):
+func _on_body_entered(body: Node2D):
 	var angle = randf_range(-random_angle, random_angle)
 	linear_velocity = linear_velocity.rotated(angle)
 	if body.is_in_group("paddles"):

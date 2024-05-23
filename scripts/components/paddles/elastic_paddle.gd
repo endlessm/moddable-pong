@@ -4,29 +4,29 @@ extends CharacterBody2D
 @export var player: Global.Player = Global.Player.LEFT
 
 ## How long can this paddle be.
-@export var max_length = 600.0
+@export var max_length: float = 600.0
 
 ## This is how fast your paddle enlarges.
-@export var enlarge_speed = 20.0
+@export var enlarge_speed: float = 20.0
 
 ## This is how fast your paddle shrinks.
-@export var shrink_speed = 50.0
+@export var shrink_speed: float = 50.0
 
 ## This is how fast your paddle moves.
-@export var speed = 1000.0
+@export var speed: float = 1000.0
 
 @onready var _shape: RectangleShape2D = %CollisionShape2D.shape
 
-@onready var _initial_length = _shape.size.y
+@onready var _initial_length: float = _shape.size.y
 
-@onready var _asset = %NinePatchRect
-@onready var _asset_initial_position_y = %NinePatchRect.position.y
+@onready var _asset: Node2D = %NinePatchRect
+@onready var _asset_initial_position_y: float = %NinePatchRect.position.y
 
-var _last_direction = 1
+var _last_direction: float = 1
 
 
-func _physics_process(_delta):
-	var direction
+func _physics_process(_delta: float):
+	var direction: float
 	if player == Global.Player.RIGHT:
 		direction = Input.get_axis("ui_up", "ui_down")
 	else:

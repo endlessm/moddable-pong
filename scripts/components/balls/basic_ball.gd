@@ -15,16 +15,16 @@ extends RigidBody2D
 @export var texture: Texture2D = null:
 	set = _set_texture
 
-var _initial_texture
-const _INITIAL_RADIUS = 64
+var _initial_texture: Texture2D
+const _INITIAL_RADIUS: int = 64
 
-@onready var _shape = %CollisionShape2D
-@onready var _sprite = %Sprite2D
+@onready var _shape: CollisionShape2D = %CollisionShape2D
+@onready var _sprite: Sprite2D = %Sprite2D
 signal touched_paddle
 signal touched_obstacle
 
 
-func _set_size(new_size):
+func _set_size(new_size: float):
 	size = new_size
 	if _shape == null or _sprite == null:
 		return
@@ -32,7 +32,7 @@ func _set_size(new_size):
 	_sprite.scale = Vector2(size, size)
 
 
-func _set_texture(new_texture):
+func _set_texture(new_texture: Texture2D):
 	if not Engine.is_editor_hint():
 		await ready
 	if _initial_texture == null:
@@ -58,7 +58,7 @@ func reset():
 	_set_size(size)
 
 
-func _on_body_entered(body):
+func _on_body_entered(body: Node2D):
 	if body.is_in_group("paddles"):
 		$PaddleAudioStreamPlayer.play()
 		touched_paddle.emit()

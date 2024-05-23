@@ -9,10 +9,10 @@ var score = {
 }
 
 signal hud_added
-signal score_changed()
-signal goal_scored(ball, player)
+signal score_changed
+signal goal_scored(ball: Node2D, player: Player)
 
-func score_goal(ball: RigidBody2D, player: Player):
+func score_goal(ball: Node2D, player: Player):
 	goal_scored.emit(ball, player)
 
 

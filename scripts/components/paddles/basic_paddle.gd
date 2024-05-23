@@ -6,7 +6,7 @@ extends CharacterBody2D
 	set = _set_player
 
 ## This is how fast your paddle moves.
-@export var speed = 1000.0
+@export var speed: float = 1000.0
 
 ## Should the paddle be able to move left and right?
 @export var tennis_movement: bool = false
@@ -15,16 +15,16 @@ extends CharacterBody2D
 @export var texture: Texture2D = null:
 	set = _set_texture
 
-var _original_texture
-@onready var _sprite = %Sprite2D
+var _original_texture: Texture2D
+@onready var _sprite: Sprite2D = %Sprite2D
 
-func _set_player(new_player):
+func _set_player(new_player: Global.Player):
 	if not Engine.is_editor_hint():
 		await ready
 	player = new_player
 	%Sprite2D.flip_h = player == Global.Player.RIGHT
 
-func _set_texture(new_texture):
+func _set_texture(new_texture: Texture2D):
 	if not Engine.is_editor_hint():
 		await ready
 	if _original_texture == null:

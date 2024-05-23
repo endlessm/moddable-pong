@@ -24,7 +24,7 @@ func _on_score_changed():
 	set_players_scores(Global.score[Global.Player.LEFT], Global.score[Global.Player.RIGHT])
 
 
-func _set_color(new_color):
+func _set_color(new_color: Color):
 	if not Engine.is_editor_hint():
 		await ready
 	color = new_color
@@ -34,6 +34,6 @@ func _set_color(new_color):
 
 
 ## Sets the score for each player:
-func set_players_scores(left_score, right_score):
+func set_players_scores(left_score: int, right_score: int):
 	_score_labels[Global.Player.LEFT].text = str(left_score)
 	_score_labels[Global.Player.RIGHT].text = str(right_score)

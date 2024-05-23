@@ -78,7 +78,7 @@ func _ready():
 	_spawn_balls()
 
 
-func _spawn_balls(player = Global.Player.LEFT):
+func _spawn_balls(player: Global.Player = Global.Player.LEFT):
 	for spawner in get_tree().get_nodes_in_group("ball spawners"):
 		var ball = spawner.spawn()
 
@@ -124,7 +124,7 @@ func _on_ball_touched_obstacle():
 		Global.add_score(obstacle_touched_player, obstacle_touched_points)
 
 
-func _on_goal_scored(ball, player):
+func _on_goal_scored(ball: Node2D, player: Global.Player):
 	if end_on_goal_reached:
 		# TODO: Show "you lose" message instead.
 		get_tree().quit()
