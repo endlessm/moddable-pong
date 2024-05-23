@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://befq7qsfnd6km"
-path="res://.godot/imported/basic_ball_orange.png-83d2cc3a72cc563bfd827f0ece0c35fa.ctex"
+uid="uid://c5pq8sa62b36v"
+path="res://.godot/imported/basic_paddle_orange.png-80a9544cac4e73355865004ec6d01277.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls/basic_ball_orange.png"
-dest_files=["res://.godot/imported/basic_ball_orange.png-83d2cc3a72cc563bfd827f0ece0c35fa.ctex"]
+source_file="res://assets/textures/paddles/basic_paddle_orange.png"
+dest_files=["res://.godot/imported/basic_paddle_orange.png-80a9544cac4e73355865004ec6d01277.ctex"]
 
 [params]
 

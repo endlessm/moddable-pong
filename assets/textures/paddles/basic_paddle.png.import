@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1blrsjderjjs"
-path="res://.godot/imported/trap_space.png-0bc6da89b5b4bf7719b51cd681660570.ctex"
+uid="uid://x5y12jlh5mk"
+path="res://.godot/imported/basic_paddle.png-4dffa7c6378061b05a5ebecf2b46ec32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spaces/trap_space.png"
-dest_files=["res://.godot/imported/trap_space.png-0bc6da89b5b4bf7719b51cd681660570.ctex"]
+source_file="res://assets/textures/paddles/basic_paddle.png"
+dest_files=["res://.godot/imported/basic_paddle.png-4dffa7c6378061b05a5ebecf2b46ec32.ctex"]
 
 [params]
 

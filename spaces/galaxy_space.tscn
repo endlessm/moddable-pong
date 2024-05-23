@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bh5ty3tgam2gp"]
 
-[ext_resource type="Texture2D" uid="uid://1fcfep77mg20" path="res://assets/spaces/galaxy_space.png" id="1_epiid"]
+[ext_resource type="Texture2D" uid="uid://1fcfep77mg20" path="res://assets/textures/spaces/galaxy_space.png" id="1_epiid"]
 [ext_resource type="PackedScene" uid="uid://cg1m4evi8c35o" path="res://components/other/spawner.tscn" id="1_kgd61"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_s2bjg"]
 [ext_resource type="PackedScene" uid="uid://bg8qfa6xrifm1" path="res://components/other/asteroid.tscn" id="4_6j0m2"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjvkxd1k6hcus"]
+[gd_scene load_steps=11 format=3 uid="uid://bxl66pfeiyq7"]
 
-[ext_resource type="Texture2D" uid="uid://b1blrsjderjjs" path="res://assets/spaces/trap_space.png" id="1_d6xnt"]
+[ext_resource type="Texture2D" uid="uid://b1blrsjderjjs" path="res://assets/textures/spaces/trap_space.png" id="1_d6xnt"]
 [ext_resource type="Script" path="res://scripts/spaces/trap_space.gd" id="1_olh01"]
-[ext_resource type="Texture2D" uid="uid://byaw6586mq2b" path="res://assets/spaces/walls.png" id="2_h2emq"]
+[ext_resource type="Texture2D" uid="uid://byaw6586mq2b" path="res://assets/textures/spaces/walls.png" id="2_h2emq"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_ih2ia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q267f"]

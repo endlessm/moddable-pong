@@ -1,3 +1,4 @@
+class_name TrapSpace
 extends Node2D
 
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
