@@ -1,7 +1,8 @@
 @tool
+class_name BananaBall
 extends RigidBody2D
 
-## This is how fast your paddle moves.
+## This is how fast your ball moves.
 @export_range(0.0, 10000.0, 1.0, "suffix:px/s") var initial_speed : float = 500.0
 
 ## This is the initial angle of the ball.

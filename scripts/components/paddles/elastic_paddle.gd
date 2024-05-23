@@ -1,3 +1,4 @@
+class_name ElasticPaddle
 extends CharacterBody2D
 
 ## Is this the left paddle? Or the right one?

@@ -1,4 +1,5 @@
 @tool
+class_name BasicPaddle
 extends CharacterBody2D
 
 ## Is this the left paddle? Or the right one?

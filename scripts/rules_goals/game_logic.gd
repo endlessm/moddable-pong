@@ -1,64 +1,65 @@
+class_name GameLogic
 extends Node
 
 @export_group("Initial score")
 
-## Initial score of the left player
+## Starting score of the left side player
 @export var left_initial_score: int = 0
 
-## Initial score of the right player
+## Starting score of the right side player
 @export var right_initial_score: int = 0
 
-@export_group("Scoring On Goal Left")
+@export_group("Scoring on Left Goal")
 
 ## Score when the goal belonging to the left player is reached?
-@export var on_goal_left_reached: bool = true
+@export var score_on_left_goal_reached: bool = true
 
 ## How much to score when the goal at the left is reached?
-@export var goal_left_reached_points: int = 1
+@export var left_goal_points: int = 1
 
 ## Which player should receive the points when the goal at the left is reached?
-@export var goal_left_reached_player: Global.Player = Global.Player.RIGHT
+@export var left_goal_scoring_player: Global.Player = Global.Player.RIGHT
 
-@export_group("Scoring On Goal Right")
+@export_group("Scoring on Right Goal")
 
 ## Score when the goal belonging to the right player is reached?
-@export var on_goal_right_reached: bool = true
+@export var score_on_right_goal_reached: bool = true
 
 ## How much to score when the goal at the right is reached?
-@export var goal_right_reached_points: int = 1
+@export var right_goal_points: int = 1
 
 ## Which player should receive the points when the goal at the right is reached?
-@export var goal_right_reached_player: Global.Player = Global.Player.LEFT
+@export var right_goal_scoring_player: Global.Player = Global.Player.LEFT
 
-@export_group("Scoring On Paddle Touched")
+@export_group("Scoring on Paddle Touched")
 
 ## Score when the ball touches the paddles?
-@export var on_paddle_touched: bool = false
+@export var score_on_paddle_touched: bool = false
 
-## How much to score when the ball touches the paddles?
+## How many points for when the ball touches the paddles?
 @export var paddle_touched_points: int = 1
 
 ## Which player should receive the points when the ball touches the paddles?
-@export var paddle_touched_player: Global.Player = Global.Player.RIGHT
+@export var paddle_touched_scoring_player: Global.Player = Global.Player.RIGHT
 
-@export_group("Scoring On Obstacles Touched")
+@export_group("Scoring on Obstacles Touched")
 
 ## Score when the ball touches an obstacle?
-@export var on_obstacle_touched: bool = false
+@export var score_on_obstacle_touched: bool = false
 
-## How much to score when the ball touches an obstacle?
+## How many points for when the ball touches an obstacle?
 @export var obstacle_touched_points: int = 1
 
 ## Which player should receive the points when the ball touches an obstacle?
-@export var obstacle_touched_player: Global.Player = Global.Player.RIGHT
+@export var obstacle_touched_scoring_player: Global.Player = Global.Player.RIGHT
 
 @export_group("End Game Condition")
 
 ## End the game when a ball scores?
-@export var end_on_goal_reached: bool = false
+@export var end_on_first_goal_reached: bool = false
 
 ## End the game when a ball touches an obstacle?
-@export var end_on_obstacle_touched: bool = false
+@export var end_on_first_obstacle_reached: bool = false
 
 @export_group("Ball Properties")
 
@@ -112,26 +113,26 @@ func _update_balls_size():
 func _on_ball_touched_paddle():
 	_update_balls_velocity()
 	_update_balls_size()
-	if on_paddle_touched:
-		Global.add_score(paddle_touched_player, paddle_touched_points)
+	if score_on_paddle_touched:
+		Global.add_score(paddle_touched_scoring_player, paddle_touched_points)
 
 
 func _on_ball_touched_obstacle():
-	if end_on_obstacle_touched:
+	if end_on_first_obstacle_reached:
 		# TODO: Show "you lose" message instead.
 		get_tree().quit()
-	if on_obstacle_touched:
-		Global.add_score(obstacle_touched_player, obstacle_touched_points)
+	if score_on_obstacle_touched:
+		Global.add_score(obstacle_touched_scoring_player, obstacle_touched_points)
 
 
 func _on_goal_scored(ball: Node2D, player: Global.Player):
-	if end_on_goal_reached:
+	if end_on_first_goal_reached:
 		# TODO: Show "you lose" message instead.
 		get_tree().quit()
 
-	if on_goal_left_reached and player == Global.Player.LEFT:
-		Global.add_score(goal_left_reached_player, goal_left_reached_points)
-	elif on_goal_right_reached and player == Global.Player.RIGHT:
-		Global.add_score(goal_right_reached_player, goal_right_reached_points)
+	if score_on_left_goal_reached and player == Global.Player.LEFT:
+		Global.add_score(left_goal_scoring_player, left_goal_points)
+	elif score_on_right_goal_reached and player == Global.Player.RIGHT:
+		Global.add_score(right_goal_scoring_player, right_goal_points)
 	ball.queue_free()
 	_spawn_balls(player)

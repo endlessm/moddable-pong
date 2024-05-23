@@ -1,4 +1,5 @@
 @tool
+class_name Spawner
 extends Node2D
 
 var _default_shape: RectangleShape2D = RectangleShape2D.new()
