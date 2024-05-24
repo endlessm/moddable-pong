@@ -48,12 +48,9 @@ func _set_texture(new_texture: Texture2D):
 
 
 func _set_tint(new_tint: Color):
-	if not Engine.is_editor_hint():
-		await ready
-	if _sprite == null:
-		return
 	tint = new_tint
-	_sprite.modulate = tint
+	if is_node_ready():
+		_sprite.modulate = tint
 	notify_property_list_changed()
 
 
@@ -63,6 +60,7 @@ func _ready():
 		set_physics_process(false)
 		_set_player(player)
 		_set_texture(texture)
+	_set_tint(tint)
 
 
 func _physics_process(_delta):
