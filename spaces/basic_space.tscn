@@ -15,6 +15,7 @@ size = Vector2(256, 1080)
 
 [node name="BasicSpace" type="Node2D"]
 script = ExtResource("1_kship")
+background_texture = ExtResource("4_fsf6n")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 unique_name_in_owner = true
