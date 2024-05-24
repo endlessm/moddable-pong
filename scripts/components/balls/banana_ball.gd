@@ -49,6 +49,9 @@ func _set_tint(new_tint: Color):
 
 
 func _ready():
+	if Engine.is_editor_hint():
+		set_process(false)
+		set_physics_process(false)
 	reset()
 
 

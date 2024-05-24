@@ -58,13 +58,12 @@ func _set_tint(new_tint: Color):
 
 func _ready():
 	if Engine.is_editor_hint():
+		set_process(false)
+		set_physics_process(false)
 		_set_texture(_sprite.texture)
 
 
 func _physics_process(_delta):
-	if Engine.is_editor_hint():
-		return
-
 	var direction: Vector2
 	if player == Global.Player.RIGHT:
 		direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
