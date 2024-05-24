@@ -2,11 +2,16 @@
 class_name BasicBall
 extends RigidBody2D
 
+signal touched_paddle
+signal touched_obstacle
+
+const _INITIAL_RADIUS: int = 64
+
 ## This is how fast your ball moves.
-@export_range(0.0, 10000.0, 1.0, "suffix:px/s") var initial_speed : float = 500.0
+@export_range(0.0, 10000.0, 1.0, "suffix:px/s") var initial_speed: float = 500.0
 
 ## This is the initial angle of the ball.
-@export_range(-180, 180, 1.0, "radians_as_degrees") var initial_direction : float = PI/4
+@export_range(-180, 180, 1.0, "radians_as_degrees") var initial_direction: float = PI / 4
 
 ## How big is this ball?
 @export_range(0.1, 5.0, 0.1) var size: float = 1.0:
@@ -16,13 +21,14 @@ extends RigidBody2D
 @export var texture: Texture2D = null:
 	set = _set_texture
 
+## Use this to tint the texture of the ball a different color.
+@export var tint: Color = Color.WHITE:
+	set = _set_tint
+
 var _initial_texture: Texture2D
-const _INITIAL_RADIUS: int = 64
 
 @onready var _shape: CollisionShape2D = %CollisionShape2D
 @onready var _sprite: Sprite2D = %Sprite2D
-signal touched_paddle
-signal touched_obstacle
 
 
 func _set_size(new_size: float):
@@ -45,6 +51,15 @@ func _set_texture(new_texture: Texture2D):
 		_sprite.texture = texture
 	else:
 		_sprite.texture = _initial_texture
+
+
+func _set_tint(new_tint: Color):
+	if not Engine.is_editor_hint():
+		await ready
+	if _sprite == null:
+		return
+	tint = new_tint
+	_sprite.modulate = tint
 
 
 func _ready():
