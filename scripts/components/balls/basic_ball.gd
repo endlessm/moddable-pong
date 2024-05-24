@@ -18,17 +18,16 @@ const _INITIAL_RADIUS: int = 64
 	set = _set_size
 
 ## Use this to change the texture of the ball.
-@export var texture: Texture2D = null:
+@export var texture: Texture2D = _initial_texture:
 	set = _set_texture
 
 ## Use this to tint the texture of the ball a different color.
 @export var tint: Color = Color.WHITE:
 	set = _set_tint
 
-var _initial_texture: Texture2D
-
 @onready var _shape: CollisionShape2D = %CollisionShape2D
 @onready var _sprite: Sprite2D = %Sprite2D
+@onready var _initial_texture: Texture2D = %Sprite2D.texture
 
 
 func _set_size(new_size: float):
@@ -42,8 +41,6 @@ func _set_size(new_size: float):
 func _set_texture(new_texture: Texture2D):
 	if not Engine.is_editor_hint():
 		await ready
-	if _initial_texture == null:
-		_initial_texture = texture
 	texture = new_texture
 	if _sprite == null:
 		return
@@ -51,6 +48,7 @@ func _set_texture(new_texture: Texture2D):
 		_sprite.texture = texture
 	else:
 		_sprite.texture = _initial_texture
+	notify_property_list_changed()
 
 
 func _set_tint(new_tint: Color):
@@ -60,6 +58,7 @@ func _set_tint(new_tint: Color):
 		return
 	tint = new_tint
 	_sprite.modulate = tint
+	notify_property_list_changed()
 
 
 func _ready():
@@ -68,7 +67,7 @@ func _ready():
 		set_physics_process(false)
 	reset()
 	if Engine.is_editor_hint():
-		_set_texture(_sprite.texture)
+		_set_texture(texture)
 
 
 func reset():

@@ -13,15 +13,15 @@ extends CharacterBody2D
 @export var tennis_movement: bool = false
 
 ## Use this to change the texture of the paddle.
-@export var texture: Texture2D = null:
+@export var texture: Texture2D = _initial_texture:
 	set = _set_texture
 
 ## Use this to tint the texture of the paddle a different color.
 @export var tint: Color = Color.WHITE:
 	set = _set_tint
 
-var _original_texture: Texture2D
 @onready var _sprite: Sprite2D = %Sprite2D
+@onready var _initial_texture: Texture2D = %Sprite2D.texture
 
 
 func _set_player(new_player: Global.Player):
@@ -31,20 +31,20 @@ func _set_player(new_player: Global.Player):
 	if _sprite == null:
 		return
 	_sprite.flip_h = player == Global.Player.RIGHT
+	notify_property_list_changed()
 
 
 func _set_texture(new_texture: Texture2D):
 	if not Engine.is_editor_hint():
 		await ready
-	if _original_texture == null:
-		_original_texture = texture
 	texture = new_texture
 	if _sprite == null:
 		return
 	if texture != null:
 		_sprite.texture = texture
 	else:
-		_sprite.texture = _original_texture
+		_sprite.texture = _initial_texture
+	notify_property_list_changed()
 
 
 func _set_tint(new_tint: Color):
@@ -54,13 +54,15 @@ func _set_tint(new_tint: Color):
 		return
 	tint = new_tint
 	_sprite.modulate = tint
+	notify_property_list_changed()
 
 
 func _ready():
 	if Engine.is_editor_hint():
 		set_process(false)
 		set_physics_process(false)
-		_set_texture(_sprite.texture)
+		_set_player(player)
+		_set_texture(texture)
 
 
 func _physics_process(_delta):
