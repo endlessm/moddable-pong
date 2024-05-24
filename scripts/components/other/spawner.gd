@@ -2,31 +2,42 @@
 class_name Spawner
 extends Node2D
 
-var _default_shape: RectangleShape2D = RectangleShape2D.new()
-
-## The spawn will happen at a random point inside this area.
-@export var spawn_area: Shape2D = _default_shape
-
-## How many seconds the spawned component will stay until automatically removed. If zero, it won't be automatically removed.
-@export_range(0.0, 10.0, 0.1, "or_greater") var life_time: float = 3.0
-
-## The period of time in seconds to spawn another component. If zero, they won't spawn automatically. See the spawn() method.
-@export_range(0.0, 10.0, 0.1, "or_greater") var spawn_frequency: float = 0.0
-
 const _DEBUG_COLOR = Color(1.0, 0.3, 0.7, 0.2)
 const _DEFAULT_SHAPE_SIZE = Vector2(200, 200)
 
+## The spawn will happen at a random point inside this area.
+@export var spawn_area: Shape2D = _default_shape:
+	set = _set_spawn_area
+
+## How many seconds the spawned component will stay until automatically removed. If zero, it won't
+## be automatically removed.
+@export_range(0.0, 10.0, 0.1, "or_greater") var life_time: float = 3.0
+
+## The period of time in seconds to spawn another component. If zero, they won't spawn
+## automatically. See the spawn() method.
+@export_range(0.0, 10.0, 0.1, "or_greater") var spawn_frequency: float = 0.0
+
+var _default_shape: RectangleShape2D = RectangleShape2D.new()
 var _nodes: Array[Node2D] = []
+
+
+func _set_spawn_area(new_area):
+	spawn_area = new_area
+	spawn_area.changed.connect(func(): queue_redraw())
+	queue_redraw()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Engine.is_editor_hint():
+		set_process(false)
+		set_physics_process(false)
 	_default_shape.set_size(_DEFAULT_SHAPE_SIZE)
 	update_configuration_warnings()
 
 	if Engine.is_editor_hint():
 		return
-	
+
 	for node in get_children():
 		if node is Node2D:
 			remove_child(node)
@@ -41,22 +52,16 @@ func _ready():
 
 
 func _get_configuration_warnings() -> PackedStringArray:
-		var warnings = []
-		if get_child_count() == 0:
-			warnings.append("Nothing to spawn. Please add childrens to the Spawner node.")
-		return warnings
+	var warnings = []
+	if get_child_count() == 0:
+		warnings.append("Nothing to spawn. Please add childrens to the Spawner node.")
+	return warnings
 
 
 func _draw():
 	if spawn_area != null:
 		if Engine.is_editor_hint() or get_tree().is_debugging_collisions_hint():
 			spawn_area.draw(get_canvas_item(), _DEBUG_COLOR)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float):
-	if Engine.is_editor_hint() or get_tree().is_debugging_collisions_hint():
-		queue_redraw()
 
 
 func _get_random_point_in_area() -> Vector2:

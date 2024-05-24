@@ -9,10 +9,12 @@ extends RigidBody2D
 @onready var _sprite: Sprite2D = %Sprite2D
 
 
+func _ready():
+	_set_tint(tint)
+
+
 func _set_tint(new_tint: Color):
-	if not Engine.is_editor_hint():
-		await ready
-	if _sprite == null:
-		return
 	tint = new_tint
-	_sprite.modulate = tint
+	if is_node_ready():
+		_sprite.modulate = tint
+	notify_property_list_changed()
