@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg8ibi18um3vg"]
+[gd_scene load_steps=7 format=3 uid="uid://cg8ibi18um3vg"]
 
+[ext_resource type="Script" path="res://scripts/spaces/basic_space.gd" id="1_kship"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_2llkd"]
 [ext_resource type="Texture2D" uid="uid://dpjed81hhensu" path="res://assets/textures/spaces/basic_space.png" id="4_fsf6n"]
 
@@ -13,8 +14,10 @@ size = Vector2(64, 1080)
 size = Vector2(256, 1080)
 
 [node name="BasicSpace" type="Node2D"]
+script = ExtResource("1_kship")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("4_fsf6n")
