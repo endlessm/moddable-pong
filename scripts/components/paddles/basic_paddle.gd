@@ -65,11 +65,16 @@ func _physics_process(_delta):
 	if Engine.is_editor_hint():
 		return
 
-	var direction
+	var direction: Vector2
 	if player == Global.Player.RIGHT:
 		direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	else:
+	elif player == Global.Player.LEFT:
 		direction = Input.get_vector(
+			"player_2_left", "player_2_right", "player_2_up", "player_2_down"
+		)
+	else:
+		direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		direction += Input.get_vector(
 			"player_2_left", "player_2_right", "player_2_up", "player_2_down"
 		)
 	if direction:
