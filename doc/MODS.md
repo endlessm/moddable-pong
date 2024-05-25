@@ -40,7 +40,7 @@ Try changing the position, rotation or scale of the paddles from the
 canvas.
 
 Select a component like a `BasicBall` or `BasicPaddle`. Try dragging
-textures from the `res://assets/textures` folder in the Filesystem dock 
+textures from the `res://assets/textures` folder in the Filesystem dock
 into the `texture` property in the inspector to change how it looks.
 
 Try adding more paddles to either side by duplicating the nodes in the

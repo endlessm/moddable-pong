@@ -1,6 +1,10 @@
 extends Node
 
-enum Player {LEFT, RIGHT, BOTH}
+signal hud_added
+signal score_changed
+signal goal_scored(ball: Node2D, player: Player)
+
+enum Player { LEFT, RIGHT, BOTH }
 
 ## Stores the score for each player.
 var score = {
@@ -8,9 +12,6 @@ var score = {
 	Player.RIGHT: 0,
 }
 
-signal hud_added
-signal score_changed
-signal goal_scored(ball: Node2D, player: Player)
 
 func score_goal(ball: Node2D, player: Player):
 	goal_scored.emit(ball, player)

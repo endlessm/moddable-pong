@@ -15,7 +15,7 @@ extends CanvasLayer
 func _ready():
 	if Engine.is_editor_hint():
 		return
-		
+
 	Global.score_changed.connect(_on_score_changed)
 	Global.hud_added.emit()
 

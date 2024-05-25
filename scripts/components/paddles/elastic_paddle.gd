@@ -16,14 +16,14 @@ extends CharacterBody2D
 ## This is how fast your paddle moves.
 @export var speed: float = 1000.0
 
+var _last_direction: float = 1
+
 @onready var _shape: RectangleShape2D = %CollisionShape2D.shape
 
 @onready var _initial_length: float = _shape.size.y
 
 @onready var _asset: Node2D = %NinePatchRect
 @onready var _asset_initial_position_y: float = %NinePatchRect.position.y
-
-var _last_direction: float = 1
 
 
 func _physics_process(_delta: float):
@@ -48,6 +48,8 @@ func _physics_process(_delta: float):
 			velocity.y = move_toward(velocity.y, 0, speed)
 		_shape.size.y = move_toward(_shape.size.y, _initial_length, shrink_speed)
 		_asset.size.y = move_toward(%NinePatchRect.size.y, _initial_length, shrink_speed)
-		_asset.position.y = move_toward(%NinePatchRect.position.y, _asset_initial_position_y, shrink_speed)
+		_asset.position.y = move_toward(
+			%NinePatchRect.position.y, _asset_initial_position_y, shrink_speed
+		)
 
 	move_and_slide()
