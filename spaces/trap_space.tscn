@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxl66pfeiyq7"]
+[gd_scene load_steps=12 format=3 uid="uid://bxl66pfeiyq7"]
 
 [ext_resource type="Texture2D" uid="uid://b1blrsjderjjs" path="res://assets/textures/spaces/trap_space.png" id="1_d6xnt"]
 [ext_resource type="Script" path="res://scripts/spaces/trap_space.gd" id="1_olh01"]
 [ext_resource type="Texture2D" uid="uid://byaw6586mq2b" path="res://assets/textures/spaces/walls.png" id="2_h2emq"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_ih2ia"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q267f"]
-size = Vector2(1936, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_madpv"]
+size = Vector2(2688, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_171tb"]
+size = Vector2(2688, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4u81"]
 size = Vector2(64, 1080)
@@ -95,10 +98,6 @@ axis_stretch_vertical = 2
 collision_layer = 4
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop"]
-position = Vector2(960, -32)
-shape = SubResource("RectangleShape2D_q267f")
-
 [node name="NinePatchRect2" type="NinePatchRect" parent="WallTop"]
 offset_top = -583.0
 offset_right = 1925.0
@@ -110,13 +109,13 @@ patch_margin_bottom = 64
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallTop"]
+position = Vector2(960, -256)
+shape = SubResource("RectangleShape2D_madpv")
+
 [node name="WallBottom" type="AnimatableBody2D" parent="."]
 collision_layer = 4
 collision_mask = 3
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallBottom"]
-position = Vector2(960, 1112)
-shape = SubResource("RectangleShape2D_q267f")
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="WallBottom"]
 offset_top = 1666.0
@@ -129,6 +128,10 @@ patch_margin_right = 64
 patch_margin_bottom = 64
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallBottom"]
+position = Vector2(960, 1336)
+shape = SubResource("RectangleShape2D_171tb")
 
 [node name="PaddleBounds" type="RigidBody2D" parent="."]
 collision_layer = 64
