@@ -35,5 +35,12 @@ func _set_color(new_color: Color):
 
 ## Sets the score for each player:
 func set_players_scores(left_score: int, right_score: int):
-	_score_labels[Global.Player.LEFT].text = str(left_score)
-	_score_labels[Global.Player.RIGHT].text = str(right_score)
+	var left_text = _score_labels[Global.Player.LEFT].text
+	if str(left_score) != left_text:
+		_score_labels[Global.Player.LEFT].text = str(left_score)
+		DampedOscillator.animate(_score_labels[Global.Player.LEFT], "rotation", 300.0, 7.0, -95.0, 0.5)
+	var right_text = _score_labels[Global.Player.RIGHT].text
+	if str(right_score) != right_text:
+		_score_labels[Global.Player.RIGHT].text = str(right_score)
+		DampedOscillator.animate(_score_labels[Global.Player.RIGHT], "rotation", 300.0, 7.0, 95.0, 0.5)
+	

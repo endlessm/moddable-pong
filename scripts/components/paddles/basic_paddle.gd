@@ -87,3 +87,7 @@ func _physics_process(_delta):
 		velocity = Vector2(0, 0)
 
 	move_and_slide()
+
+
+func on_ball_hit():
+	DampedOscillator.animate(%Sprite2D, "scale", 600.0, 20.0, -15.0, 0.75)

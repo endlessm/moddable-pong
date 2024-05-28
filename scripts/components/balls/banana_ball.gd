@@ -77,9 +77,11 @@ func _on_hang():
 
 
 func _on_body_entered(body: Node2D):
+	DampedOscillator.animate(self, "scale", 1600.0, 4.0, 15.0, 0.75)
 	var angle = randf_range(-random_angle, random_angle)
 	linear_velocity = linear_velocity.rotated(angle)
 	if body.is_in_group("paddles"):
+		body.on_ball_hit()
 		$PaddleAudioStreamPlayer.play()
 		touched_paddle.emit()
 	else:
