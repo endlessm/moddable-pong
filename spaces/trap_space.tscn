@@ -97,6 +97,7 @@ axis_stretch_vertical = 2
 [node name="WallTop" type="AnimatableBody2D" parent="."]
 collision_layer = 4
 collision_mask = 3
+collision_priority = 10.0
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="WallTop"]
 offset_top = -583.0
@@ -116,6 +117,7 @@ shape = SubResource("RectangleShape2D_madpv")
 [node name="WallBottom" type="AnimatableBody2D" parent="."]
 collision_layer = 4
 collision_mask = 3
+collision_priority = 10.0
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="WallBottom"]
 offset_top = 1666.0
