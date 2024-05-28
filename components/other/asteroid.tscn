@@ -11,9 +11,9 @@ angular_velocity = 0.174533
 script = ExtResource("1_bnou6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-47, -156, -132, 99, -34, 165, 121, 127, 185, -45)
+polygon = PackedVector2Array(-48, -172, -142, 65, -31, 137, 119, 94, 179, -70)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(36, 3)
 texture = ExtResource("1_d1o4w")
+offset = Vector2(30, -20)
