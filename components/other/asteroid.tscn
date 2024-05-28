@@ -5,8 +5,8 @@
 
 [node name="Asteroid" type="RigidBody2D" groups=["obstacles"]]
 collision_layer = 8
-collision_mask = 8
-mass = 1000.0
+collision_mask = 15
+mass = 200.0
 angular_velocity = 0.174533
 script = ExtResource("1_bnou6")
 
