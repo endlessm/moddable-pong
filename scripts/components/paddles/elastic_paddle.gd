@@ -5,16 +5,16 @@ extends CharacterBody2D
 @export var player: Global.Player = Global.Player.LEFT
 
 ## How long can this paddle be.
-@export var max_length: float = 600.0
+@export_range(0, 1200, 2) var max_length: float = 600.0
 
 ## This is how fast your paddle enlarges.
-@export var enlarge_speed: float = 20.0
+@export_range(0, 100, 0.1) var enlarge_speed: float = 20.0
 
 ## This is how fast your paddle shrinks.
-@export var shrink_speed: float = 50.0
+@export_range(0, 100, 0.1) var shrink_speed: float = 50.0
 
 ## This is how fast your paddle moves.
-@export var speed: float = 1000.0
+@export_range(0, 3000.0, 5.0) var speed: float = 1000.0
 
 var _last_direction: float = 1
 
