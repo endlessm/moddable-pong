@@ -78,6 +78,7 @@ func _get_random_node() -> Node2D:
 
 func spawn():
 	var node = _get_random_node().duplicate()
+	node.set_meta("spawner", self)
 	if life_time != 0.0:
 		var timer = get_tree().create_timer(life_time)
 		timer.timeout.connect(node.queue_free)
