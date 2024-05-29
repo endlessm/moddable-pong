@@ -22,7 +22,7 @@ var _last_direction: float = 1
 
 @onready var _initial_length: float = _shape.size.y
 
-@onready var _asset: Node2D = %NinePatchRect
+@onready var _asset: NinePatchRect = %NinePatchRect
 @onready var _asset_initial_position_y: float = %NinePatchRect.position.y
 
 
