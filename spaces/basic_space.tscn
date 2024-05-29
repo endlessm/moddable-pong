@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dpjed81hhensu" path="res://assets/textures/spaces/basic_space.png" id="4_fsf6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q267f"]
-size = Vector2(1936, 64)
+size = Vector2(2688, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqkwh"]
 size = Vector2(64, 1080)
@@ -32,16 +32,17 @@ axis_stretch_vertical = 2
 [node name="Walls" type="RigidBody2D" parent="."]
 collision_layer = 4
 collision_mask = 3
+collision_priority = 10.0
 mass = 9999.0
 lock_rotation = true
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, -32)
+position = Vector2(960, -256)
 shape = SubResource("RectangleShape2D_q267f")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2(960, 1112)
+position = Vector2(960, 1336)
 shape = SubResource("RectangleShape2D_q267f")
 
 [node name="PaddleBounds" type="RigidBody2D" parent="."]
