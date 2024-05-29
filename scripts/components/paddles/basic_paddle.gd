@@ -7,7 +7,7 @@ extends CharacterBody2D
 	set = _set_player
 
 ## This is how fast your paddle moves.
-@export var speed: float = 1000.0
+@export_range(0, 3000.0, 5.0) var speed: float = 1000.0
 
 ## Should the paddle be able to move left and right?
 @export var tennis_movement: bool = false

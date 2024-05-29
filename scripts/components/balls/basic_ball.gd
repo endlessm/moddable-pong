@@ -8,10 +8,10 @@ signal touched_obstacle
 const _INITIAL_RADIUS: int = 64
 
 ## This is how fast your ball moves.
-@export_range(0.0, 10000.0, 1.0, "suffix:px/s") var initial_speed: float = 500.0
+@export_range(0.0, 10000.0, 0.5, "suffix:px/s") var initial_speed: float = 500.0
 
 ## This is the initial angle of the ball.
-@export_range(-180, 180, 1.0, "radians_as_degrees") var initial_direction: float = PI / 4
+@export_range(-180, 180, 0.5, "radians_as_degrees") var initial_direction: float = PI / 4
 
 ## How big is this ball?
 @export_range(0.1, 5.0, 0.1) var size: float = 1.0:
