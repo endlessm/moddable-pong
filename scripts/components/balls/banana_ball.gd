@@ -4,6 +4,7 @@ extends RigidBody2D
 
 signal touched_paddle
 signal touched_obstacle
+signal hang
 
 const _INITIAL_ANGULAR_VELOCITY = 10.0
 const _INITIAL_RADIUS = 48
@@ -25,6 +26,14 @@ const _INITIAL_HEIGHT = 176
 ## Use this to tint the texture of the ball a different color.
 @export var tint: Color = Color.WHITE:
 	set = _set_tint
+
+## How many seconds to wait until a ball is considered "hanged". The timer resets when the ball
+## hits a paddle or obstacle. If the timer reaches zero, for example because the ball has become
+## stuck, the ball will be respawned.
+## If this is set to zero, the hang timer will not be used.
+@export_range(0.0, 180.0, 0.1, "suffix:s") var hang_time: float = 20.0
+
+var _hang_timer: SceneTreeTimer
 
 @onready var _shape: CapsuleShape2D = %CollisionShape2D.shape
 @onready var _sprite = %Sprite2D
@@ -58,6 +67,13 @@ func reset():
 	linear_velocity = Vector2.from_angle(initial_direction) * initial_speed
 	angular_velocity = _INITIAL_ANGULAR_VELOCITY
 	_set_size(size)
+	if hang_time != 0:
+		_hang_timer = get_tree().create_timer(hang_time)
+		_hang_timer.timeout.connect(_on_hang)
+
+
+func _on_hang():
+	hang.emit(self)
 
 
 func _on_body_entered(body: Node2D):

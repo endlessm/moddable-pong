@@ -69,6 +69,8 @@ extends Node
 ## The ball size will be multiplied by this number each time it bounces on a paddle.
 @export_range(0.8, 1.2, 0.1) var ball_size_multiplier: float = 1.0
 
+var _last_player_scored: Global.Player = Global.Player.LEFT
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -81,19 +83,24 @@ func _ready():
 
 func _spawn_balls(player: Global.Player = Global.Player.LEFT):
 	for spawner in get_tree().get_nodes_in_group("ball spawners"):
-		var ball = spawner.spawn()
+		_spawn_ball(spawner, player)
 
-		# Force the ball to move in the direction corresponding to the provided
-		# player. Use Vector2.from_angle to convert ball.initial_direction to a
-		# vector, which is convenient for determining its horizontal direction.
-		var ball_vector = Vector2.from_angle(ball.initial_direction)
-		if player == Global.Player.LEFT and ball_vector.x < 0:
-			ball.initial_direction = ball_vector.reflect(Vector2.UP).angle()
-		elif player == Global.Player.RIGHT and ball_vector.x > 0:
-			ball.initial_direction = ball_vector.reflect(Vector2.UP).angle()
 
-		ball.touched_paddle.connect(_on_ball_touched_paddle)
-		ball.touched_obstacle.connect(_on_ball_touched_obstacle)
+func _spawn_ball(spawner, player: Global.Player = Global.Player.LEFT):
+	var ball = spawner.spawn()
+
+	# Force the ball to move in the direction corresponding to the provided
+	# player. Use Vector2.from_angle to convert ball.initial_direction to a
+	# vector, which is convenient for determining its horizontal direction.
+	var ball_vector = Vector2.from_angle(ball.initial_direction)
+	if player == Global.Player.LEFT and ball_vector.x < 0:
+		ball.initial_direction = ball_vector.reflect(Vector2.UP).angle()
+	elif player == Global.Player.RIGHT and ball_vector.x > 0:
+		ball.initial_direction = ball_vector.reflect(Vector2.UP).angle()
+
+	ball.touched_paddle.connect(_on_ball_touched_paddle)
+	ball.touched_obstacle.connect(_on_ball_touched_obstacle)
+	ball.hang.connect(_on_ball_hang)
 
 
 func _update_balls_velocity():
@@ -125,6 +132,13 @@ func _on_ball_touched_obstacle():
 		Global.add_score(obstacle_touched_scoring_player, obstacle_touched_points)
 
 
+func _on_ball_hang(ball):
+	var spawner = ball.get_meta("spawner")
+	ball.queue_free()
+	if spawner != null:
+		_spawn_ball(spawner, _last_player_scored)
+
+
 func _on_goal_scored(ball: Node2D, player: Global.Player):
 	if end_on_first_goal_reached:
 		# TODO: Show "you lose" message instead.
@@ -134,5 +148,7 @@ func _on_goal_scored(ball: Node2D, player: Global.Player):
 		Global.add_score(left_goal_scoring_player, left_goal_points)
 	elif score_on_right_goal_reached and player == Global.Player.RIGHT:
 		Global.add_score(right_goal_scoring_player, right_goal_points)
+	var spawner = ball.get_meta("spawner")
 	ball.queue_free()
-	_spawn_balls(player)
+	if spawner != null:
+		_spawn_ball(spawner, player)
