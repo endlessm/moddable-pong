@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf515iccs5f23"
-path="res://.godot/imported/walking_paddle_4.png-44d752584cfd39404a737b1370d99165.ctex"
+path="res://.godot/imported/basic_paddle_5.png-319142d9c92f89519708895d3306f135.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/paddles/walking_paddle_4.png"
-dest_files=["res://.godot/imported/walking_paddle_4.png-44d752584cfd39404a737b1370d99165.ctex"]
+source_file="res://assets/textures/paddles/basic_paddle_5.png"
+dest_files=["res://.godot/imported/basic_paddle_5.png-319142d9c92f89519708895d3306f135.ctex"]
 
 [params]
 
