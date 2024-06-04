@@ -85,6 +85,10 @@ property.
 The ball texture can be customised the same way, by selecting the `BasicBall`
 node and using alternative textures from `res://assets/textures/balls`.
 
+You can also import images to the Filesystem Dock by dragging them
+from your system. Then you can use your own images as textures. Can
+you take a selfie and then use it as the paddle texture?
+
 ### Changing paddle speed
 
 Click on the `BasicPaddleLeft` or `BasicPaddleRight` node. In the inspector,
