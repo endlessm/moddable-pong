@@ -57,6 +57,12 @@ Now you have an alternate game space with black holes and asteroids.
 Repeat the above with the `spaces/trap_space.tscn` scene for an alternate
 game space with moving walls.
 
+### Change the user interface
+
+The information of a game is usually in a layer called HUD. Select the
+`HUD` node in the Scene Dock. Then you can change the color, the font
+size or the typography.
+
 ## Components
 
 ### Adjusting paddle or ball profile
