@@ -9,6 +9,10 @@ extends CanvasLayer
 @export_range(50, 500, 0.1) var font_size: float = 200.0:
 	set = _set_font_size
 
+## Select a system font to replace the default one.
+@export var font: SystemFont:
+	set = _set_font
+
 @onready var _score_labels = {
 	Global.Player.LEFT: %PlayerLeftScore,
 	Global.Player.RIGHT: %PlayerRightScore,
@@ -38,6 +42,16 @@ func _set_font_size(new_font_size: float):
 		label.add_theme_font_size_override("font_size", font_size)
 		# Adjust the pivot to the new size:
 		label.pivot_offset = Vector2(240.0, 176.0 * font_size / 200.0)
+
+
+func _set_font(new_font: SystemFont):
+	font = new_font
+	if not Engine.is_editor_hint():
+		await ready
+	elif not is_node_ready():
+		return
+	for label: Label in _score_labels.values():
+		label.add_theme_font_override("font", font)
 
 
 func _set_color(new_color: Color):
