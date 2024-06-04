@@ -41,18 +41,16 @@ var _hang_timer: SceneTreeTimer
 
 func _set_size(new_size: float):
 	size = new_size
-	if _shape == null or _sprite == null:
-		return
+	if not is_node_ready():
+		await ready
 	_shape.shape.radius = _INITIAL_RADIUS * size
 	_sprite.scale = Vector2(size, size)
 
 
 func _set_texture(new_texture: Texture2D):
-	if not Engine.is_editor_hint():
+	if not is_node_ready():
 		await ready
 	texture = new_texture
-	if _sprite == null:
-		return
 	if texture != null:
 		_sprite.texture = texture
 	else:
@@ -72,15 +70,14 @@ func _ready():
 		set_process(false)
 		set_physics_process(false)
 	reset()
-	if Engine.is_editor_hint():
-		_set_texture(texture)
-	_set_tint(tint)
 
 
 func reset():
 	linear_velocity = Vector2.from_angle(initial_direction) * initial_speed
 	angular_velocity = 0.0
 	_set_size(size)
+	_set_texture(texture)
+	_set_tint(tint)
 	if hang_time != 0:
 		_hang_timer = get_tree().create_timer(hang_time)
 		_hang_timer.timeout.connect(_on_hang)

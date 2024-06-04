@@ -34,10 +34,8 @@ func _on_score_changed():
 
 func _set_font_size(new_font_size: float):
 	font_size = new_font_size
-	if not Engine.is_editor_hint():
+	if not is_node_ready():
 		await ready
-	elif not is_node_ready():
-		return
 	for label: Label in _score_labels.values():
 		label.add_theme_font_size_override("font_size", font_size)
 		# Adjust the pivot to the new size:
@@ -46,16 +44,14 @@ func _set_font_size(new_font_size: float):
 
 func _set_font(new_font: SystemFont):
 	font = new_font
-	if not Engine.is_editor_hint():
+	if not is_node_ready():
 		await ready
-	elif not is_node_ready():
-		return
 	for label: Label in _score_labels.values():
 		label.add_theme_font_override("font", font)
 
 
 func _set_color(new_color: Color):
-	if not Engine.is_editor_hint():
+	if not is_node_ready():
 		await ready
 	color = new_color
 	%Lines.modulate = color

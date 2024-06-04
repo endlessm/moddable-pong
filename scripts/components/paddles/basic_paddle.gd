@@ -25,21 +25,17 @@ extends CharacterBody2D
 
 
 func _set_player(new_player: Global.Player):
-	if not Engine.is_editor_hint():
+	if not is_node_ready():
 		await ready
 	player = new_player
-	if _sprite == null:
-		return
 	_sprite.flip_h = player == Global.Player.RIGHT
 	notify_property_list_changed()
 
 
 func _set_texture(new_texture: Texture2D):
-	if not Engine.is_editor_hint():
+	if not is_node_ready():
 		await ready
 	texture = new_texture
-	if _sprite == null:
-		return
 	if texture != null:
 		_sprite.texture = texture
 	else:
@@ -58,8 +54,8 @@ func _ready():
 	if Engine.is_editor_hint():
 		set_process(false)
 		set_physics_process(false)
-		_set_player(player)
-		_set_texture(texture)
+	_set_player(player)
+	_set_texture(texture)
 	_set_tint(tint)
 
 
