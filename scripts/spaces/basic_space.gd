@@ -18,13 +18,11 @@ var _initial_background_texture: Texture2D
 
 
 func _set_background_texture(new_texture: Texture2D):
-	if not Engine.is_editor_hint():
+	if not is_node_ready():
 		await ready
 	if _initial_background_texture == null:
 		_initial_background_texture = background_texture
 	background_texture = new_texture
-	if _sprite == null:
-		return
 	if background_texture != null:
 		_sprite.texture = background_texture
 	else:
@@ -56,4 +54,4 @@ func _ready():
 	if Engine.is_editor_hint():
 		set_process(false)
 		set_physics_process(false)
-		_set_background_texture(_sprite.texture)
+	_set_background_texture(_sprite.texture)

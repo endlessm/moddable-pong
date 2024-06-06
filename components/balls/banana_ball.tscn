@@ -23,7 +23,6 @@ contact_monitor = true
 linear_velocity = Vector2(353.553, 353.553)
 angular_velocity = 10.0
 script = ExtResource("1_6w3xg")
-hang_time = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

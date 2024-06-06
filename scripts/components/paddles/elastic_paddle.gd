@@ -53,3 +53,7 @@ func _physics_process(_delta: float):
 		)
 
 	move_and_slide()
+
+
+func on_ball_hit():
+	DampedOscillator.animate(%NinePatchRect, "scale", 600.0, 20.0, -15.0, 0.75)

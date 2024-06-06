@@ -57,6 +57,12 @@ Now you have an alternate game space with black holes and asteroids.
 Repeat the above with the `spaces/trap_space.tscn` scene for an alternate
 game space with moving walls.
 
+### Change the user interface
+
+The information of a game is usually in a layer called HUD. Select the
+`HUD` node in the Scene Dock. Then you can change the color, the font
+size or the typography.
+
 ## Components
 
 ### Adjusting paddle or ball profile
@@ -78,6 +84,10 @@ property.
 
 The ball texture can be customised the same way, by selecting the `BasicBall`
 node and using alternative textures from `res://assets/textures/balls`.
+
+You can also import images to the Filesystem Dock by dragging them
+from your system. Then you can use your own images as textures. Can
+you take a selfie and then use it as the paddle texture?
 
 ### Changing paddle speed
 
