@@ -69,6 +69,10 @@ player_2_right={
 2d_physics/layer_6="right goal"
 2d_physics/layer_7="paddle bounds"
 
+[orchestrator]
+
+settings/action_favorites=PackedStringArray("Class/Signals/Node/ready")
+
 [physics]
 
 2d/default_gravity=0.0

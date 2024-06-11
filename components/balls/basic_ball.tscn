@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7l70grmkauij"]
 
-[ext_resource type="Script" path="res://scripts/components/balls/basic_ball.gd" id="1_kv14h"]
+[ext_resource type="Script" path="res://components/balls/basic_ball.os" id="1_2ny62"]
 [ext_resource type="Texture2D" uid="uid://co55eluvg22u1" path="res://assets/textures/balls/basic_ball.png" id="2_ndlr6"]
 [ext_resource type="AudioStream" uid="uid://dny34eu5rs35b" path="res://assets/audio/wall_hit.ogg" id="3_8b06y"]
 [ext_resource type="AudioStream" uid="uid://qnh5hdpshdn0" path="res://assets/audio/paddle_hit.ogg" id="4_2gpnh"]
@@ -20,8 +20,9 @@ continuous_cd = 1
 max_contacts_reported = 1
 contact_monitor = true
 linear_velocity = Vector2(353.553, 353.553)
-script = ExtResource("1_kv14h")
-texture = ExtResource("2_ndlr6")
+script = ExtResource("1_2ny62")
+initial_direction = null
+texture = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -37,4 +38,10 @@ stream = ExtResource("3_8b06y")
 [node name="PaddleAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2gpnh")
 
+[node name="HangTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="touched_obstacle" from="." to="." method="_on_touched_obstacle"]
+[connection signal="touched_paddle" from="." to="." method="_on_touched_paddle"]
+[connection signal="timeout" from="HangTimer" to="." method="_on_hang_timer_timeout"]

@@ -32,8 +32,9 @@ spawn_area = SubResource("RectangleShape2D_guyqd")
 life_time = 0.0
 
 [node name="BasicBall" parent="BallSpawner" instance=ExtResource("4_rffv2")]
-linear_velocity = Vector2(353.553, 353.553)
+initial_direction = 0.785
 tint = Color(0.509804, 0.360784, 0.972549, 1)
+hang_time = 1.0
 
 [node name="GameLogic" parent="." instance=ExtResource("3_umelw")]
 

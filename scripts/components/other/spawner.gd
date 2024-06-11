@@ -76,7 +76,7 @@ func _get_random_node() -> Node2D:
 	return _nodes[i]
 
 
-func spawn():
+func spawn() -> Node2D:
 	var node = _get_random_node().duplicate()
 	node.set_meta("spawner", self)
 	if life_time != 0.0:
