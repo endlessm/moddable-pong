@@ -71,7 +71,7 @@ player_2_right={
 
 [orchestrator]
 
-settings/action_favorites=PackedStringArray("Class/Signals/Node/ready")
+settings/action_favorites=PackedStringArray("Script/Nodes/Utilities/engine_singleton", "Script/Nodes/Constant/singleton_constant", "Script/Nodes/int/make_integer_from_Boolean")
 
 [physics]
 

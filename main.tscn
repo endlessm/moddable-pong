@@ -19,12 +19,10 @@ metadata/_edit_vertical_guides_ = [-933.0]
 
 [node name="BasicPaddleLeft" parent="." instance=ExtResource("1_xxpg5")]
 position = Vector2(64, 512)
-tint = Color(0.511023, 0.361749, 0.971889, 1)
 
 [node name="BasicPaddleRight" parent="." instance=ExtResource("1_xxpg5")]
 position = Vector2(1856, 512)
-player = 1
-tint = Color(0.511023, 0.361749, 0.971889, 1)
+player = 2
 
 [node name="BallSpawner" parent="." groups=["ball spawners"] instance=ExtResource("3_spct4")]
 position = Vector2(967, 531)
