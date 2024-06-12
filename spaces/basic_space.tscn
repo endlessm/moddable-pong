@@ -69,4 +69,4 @@ shape = SubResource("RectangleShape2D_lyev5")
 [node name="RightGoal" parent="." instance=ExtResource("3_2llkd")]
 position = Vector2(1920, 0)
 scale = Vector2(-1, 1)
-player = 1
+player = 2

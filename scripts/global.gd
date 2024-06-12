@@ -4,13 +4,20 @@ signal hud_added
 signal score_changed
 signal goal_scored(ball: Node2D, player: Player)
 
-enum Player { LEFT, RIGHT, BOTH }
+enum Player { LEFT = SIDE_LEFT, RIGHT = SIDE_RIGHT, BOTH }
 
 ## Stores the score for each player.
-var score = {
+@export var score = {
 	Player.LEFT: 0,
 	Player.RIGHT: 0,
 }
+
+var hud: Node = null
+
+
+func set_hud(new_hud: Node):
+	hud = new_hud
+	hud_added.emit()
 
 
 func score_goal(ball: Node2D, player: Player):
@@ -24,3 +31,5 @@ func add_score(player: Player, value: int):
 	else:
 		score[player] += value
 	score_changed.emit()
+	if hud:
+		hud.emit_signal("score_changed", score[Player.LEFT], score[Player.RIGHT])
