@@ -12,13 +12,6 @@ enum Player { LEFT = SIDE_LEFT, RIGHT = SIDE_RIGHT, BOTH }
 	Player.RIGHT: 0,
 }
 
-var hud: Node = null
-
-
-func set_hud(new_hud: Node):
-	hud = new_hud
-	hud_added.emit()
-
 
 func score_goal(ball: Node2D, player: Player):
 	goal_scored.emit(ball, player)
@@ -31,5 +24,3 @@ func add_score(player: Player, value: int):
 	else:
 		score[player] += value
 	score_changed.emit()
-	if hud:
-		hud.emit_signal("score_changed", score[Player.LEFT], score[Player.RIGHT])

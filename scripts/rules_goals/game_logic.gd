@@ -98,8 +98,6 @@ func _spawn_ball(spawner, player: Global.Player = Global.Player.LEFT):
 	elif player == Global.Player.RIGHT and ball_vector.x > 0:
 		ball.initial_direction = ball_vector.reflect(Vector2.UP).angle()
 	
-	print("BALL?", ball)
-	
 	ball.connect("touched_paddle", _on_ball_touched_paddle)
 	ball.connect("touched_obstacle", _on_ball_touched_obstacle)
 	ball.connect("hang", _on_ball_hang)
@@ -120,7 +118,6 @@ func _update_balls_size():
 
 
 func _on_ball_touched_paddle():
-	print("TOUCHED PADDLE")
 	_update_balls_velocity()
 	_update_balls_size()
 	if score_on_paddle_touched:
@@ -136,7 +133,6 @@ func _on_ball_touched_obstacle():
 
 
 func _on_ball_hang(ball):
-	print("ON BALL HANG")
 	var spawner = ball.get_meta("spawner")
 	ball.queue_free()
 	if spawner != null:
