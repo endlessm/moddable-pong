@@ -1,5 +1,8 @@
 extends Node
 
+signal started
+signal ended
+
 # node values
 var node
 var propertie
@@ -14,9 +17,6 @@ var displacement = 0.0
 var scale_factor = 1.0
 
 var active = true
-
-signal started
-signal ended
 
 
 func _physics_process(delta):
