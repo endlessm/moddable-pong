@@ -10,5 +10,5 @@
   "download_commit": "{{ env.GITHUB_SHA }}",
   "browse_url": "{{ context.repository.html_url }}",
   "issues_url": "{{ context.repository.html_url }}/issues",
-  "icon_url": "https://raw.githubusercontent.com/endlessm/modbable-pong/{{ context.release.tag_name }}/icon.png"
+  "icon_url": "https://raw.githubusercontent.com/endlessm/moddable-pong/{{ context.release.tag_name }}/icon.png"
 }
