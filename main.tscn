@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bel3lwsvc2uc3"]
+[gd_scene load_steps=10 format=3 uid="uid://bel3lwsvc2uc3"]
 
 [ext_resource type="PackedScene" uid="uid://s7enbp56f256" path="res://components/paddles/basic_paddle.tscn" id="1_xxpg5"]
 [ext_resource type="PackedScene" uid="uid://cg1m4evi8c35o" path="res://components/other/spawner.tscn" id="3_spct4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bis7afjjuwypq" path="res://hud.tscn" id="4_4868o"]
 [ext_resource type="PackedScene" uid="uid://cg8ibi18um3vg" path="res://spaces/basic_space.tscn" id="4_nvjpm"]
 [ext_resource type="PackedScene" uid="uid://c7l70grmkauij" path="res://components/balls/basic_ball.tscn" id="4_rffv2"]
+[ext_resource type="AudioStream" uid="uid://c073ikrdmkcol" path="res://assets/audio/Laser Groove (2).mp3" id="7_ny47f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_guyqd"]
 size = Vector2(10, 1080)
@@ -39,3 +40,7 @@ tint = Color(0.509804, 0.360784, 0.972549, 1)
 
 [node name="HUD" parent="." instance=ExtResource("4_4868o")]
 font = SubResource("SystemFont_24cl0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ny47f")
+autoplay = true

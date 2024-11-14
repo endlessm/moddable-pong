@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c073ikrdmkcol"
+path="res://.godot/imported/Laser Groove (2).mp3-1fe11ed56bd0906e5f26f094ee8f2387.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Laser Groove (2).mp3"
+dest_files=["res://.godot/imported/Laser Groove (2).mp3-1fe11ed56bd0906e5f26f094ee8f2387.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

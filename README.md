@@ -1,5 +1,11 @@
 # Moddable Pong
 
+This version of moddable pong uses the following song:
+
+"Laser Groove" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
 This mini moddable game project by [Endless OS
 Foundation](https://endlessos.org) is intended to help ease the learning curve
 into Godot.
