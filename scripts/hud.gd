@@ -1,4 +1,5 @@
 @tool
+class_name HUD
 extends CanvasLayer
 
 ## The color of the scores and middle line.
@@ -24,8 +25,8 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 
-	Global.score_changed.connect(_on_score_changed)
 	Global.hud_added.emit()
+	Global.score_changed.connect(_on_score_changed)
 
 
 func _on_score_changed():

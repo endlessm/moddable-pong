@@ -1,6 +1,9 @@
 extends Node
 
+## Emitted from [HUD] when it is added to the scene
+@warning_ignore("unused_signal")
 signal hud_added
+
 signal score_changed
 signal goal_scored(ball: Node2D, player: Player)
 
