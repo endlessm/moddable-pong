@@ -7,7 +7,7 @@ extends CanvasLayer
 	set = _set_color
 
 ## The size of the score numbers.
-@export_range(50, 500, 0.1) var font_size: float = 200.0:
+@export_range(50, 500, 1) var font_size: float = 200.0:
 	set = _set_font_size
 
 ## Select a system font to replace the default one.
@@ -38,7 +38,7 @@ func _set_font_size(new_font_size: float):
 	if not is_node_ready():
 		await ready
 	for label: Label in _score_labels.values():
-		label.add_theme_font_size_override("font_size", font_size)
+		label.add_theme_font_size_override("font_size", roundi(font_size))
 		# Adjust the pivot to the new size:
 		label.pivot_offset = Vector2(240.0, 176.0 * font_size / 200.0)
 
