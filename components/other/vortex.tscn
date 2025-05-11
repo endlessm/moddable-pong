@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6b52y"]
 _data = {
-"RESET": SubResource("Animation_lgtld"),
-"rotate": SubResource("Animation_ho7n3")
+&"RESET": SubResource("Animation_lgtld"),
+&"rotate": SubResource("Animation_ho7n3")
 }
 
 [node name="Vortex" type="Area2D"]
