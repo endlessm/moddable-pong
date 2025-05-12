@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bg8qfa6xrifm1"]
 
-[ext_resource type="Script" path="res://scripts/components/other/asteroid.gd" id="1_bnou6"]
+[ext_resource type="Script" uid="uid://soe7x6n10qhc" path="res://scripts/components/other/asteroid.gd" id="1_bnou6"]
 [ext_resource type="Texture2D" uid="uid://bemeakmfsoeyf" path="res://assets/textures/spaces/asteroid.png" id="1_d1o4w"]
 
 [node name="Asteroid" type="RigidBody2D" groups=["obstacles"]]

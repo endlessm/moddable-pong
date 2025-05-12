@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bxl66pfeiyq7"]
 
 [ext_resource type="Texture2D" uid="uid://b1blrsjderjjs" path="res://assets/textures/spaces/trap_space.png" id="1_d6xnt"]
-[ext_resource type="Script" path="res://scripts/spaces/trap_space.gd" id="1_olh01"]
+[ext_resource type="Script" uid="uid://dlqp1c3nryqew" path="res://scripts/spaces/trap_space.gd" id="1_olh01"]
 [ext_resource type="Texture2D" uid="uid://byaw6586mq2b" path="res://assets/textures/spaces/walls.png" id="2_h2emq"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_ih2ia"]
 
@@ -76,8 +76,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n6ke7"]
 _data = {
-"RESET": SubResource("Animation_ndj6j"),
-"moving_walls": SubResource("Animation_vaqix")
+&"RESET": SubResource("Animation_ndj6j"),
+&"moving_walls": SubResource("Animation_vaqix")
 }
 
 [node name="TrapSpace" type="Node2D"]
