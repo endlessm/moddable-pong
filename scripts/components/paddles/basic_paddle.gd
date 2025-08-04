@@ -25,29 +25,33 @@ extends CharacterBody2D
 
 
 func _set_player(new_player: Global.Player) -> void:
-	if not is_node_ready():
-		await ready
 	player = new_player
+
+	if not is_node_ready():
+		return
+
 	_sprite.flip_h = player == Global.Player.RIGHT
-	notify_property_list_changed()
 
 
 func _set_texture(new_texture: Texture2D) -> void:
-	if not is_node_ready():
-		await ready
 	texture = new_texture
+
+	if not is_node_ready():
+		return
+
 	if texture != null:
 		_sprite.texture = texture
 	else:
 		_sprite.texture = _initial_texture
-	notify_property_list_changed()
 
 
 func _set_tint(new_tint: Color) -> void:
 	tint = new_tint
-	if is_node_ready():
-		_sprite.modulate = tint
-	notify_property_list_changed()
+
+	if not is_node_ready():
+		return
+
+	_sprite.modulate = tint
 
 
 func _ready() -> void:
