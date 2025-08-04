@@ -24,7 +24,7 @@ extends CharacterBody2D
 @onready var _initial_texture: Texture2D = %Sprite2D.texture
 
 
-func _set_player(new_player: Global.Player):
+func _set_player(new_player: Global.Player) -> void:
 	if not is_node_ready():
 		await ready
 	player = new_player
@@ -32,7 +32,7 @@ func _set_player(new_player: Global.Player):
 	notify_property_list_changed()
 
 
-func _set_texture(new_texture: Texture2D):
+func _set_texture(new_texture: Texture2D) -> void:
 	if not is_node_ready():
 		await ready
 	texture = new_texture
@@ -43,14 +43,14 @@ func _set_texture(new_texture: Texture2D):
 	notify_property_list_changed()
 
 
-func _set_tint(new_tint: Color):
+func _set_tint(new_tint: Color) -> void:
 	tint = new_tint
 	if is_node_ready():
 		_sprite.modulate = tint
 	notify_property_list_changed()
 
 
-func _ready():
+func _ready() -> void:
 	if Engine.is_editor_hint():
 		set_process(false)
 		set_physics_process(false)
@@ -59,7 +59,7 @@ func _ready():
 	_set_tint(tint)
 
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	var direction: Vector2
 	if player == Global.Player.RIGHT:
 		direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -85,5 +85,5 @@ func _physics_process(_delta):
 	move_and_slide()
 
 
-func on_ball_hit():
+func on_ball_hit() -> void:
 	DampedOscillator.animate(%Sprite2D, "scale", 600.0, 20.0, -15.0, 0.75)
