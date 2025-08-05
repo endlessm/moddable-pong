@@ -38,7 +38,6 @@ var _hang_timer: SceneTreeTimer
 @onready var _sprite: Sprite2D = %Sprite2D
 @onready var _initial_texture: Texture2D = %Sprite2D.texture
 
-const DEFAULT_BALL_SIZE: Vector2 = Vector2(128, 128)
 
 ## Return the radius for the circle collision shape.  
 ## If [member texture] is provided, obtain the radius from the texture size.  
