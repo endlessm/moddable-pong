@@ -38,15 +38,15 @@ var _hang_timer: SceneTreeTimer
 @onready var _sprite: Sprite2D = %Sprite2D
 @onready var _initial_texture: Texture2D = %Sprite2D.texture
 
-const DEFAULT_BALL_SIZE: Vector2 = Vector2(128, 128)
 
-## Return the radius for the circle collision shape.  
-## If [member texture] is provided, obtain the radius from the texture size.  
+## Return the radius for the circle collision shape.
+## If [member texture] is provided, obtain the radius from the texture size.
 func get_shape_radius() -> float:
 	if not is_node_ready() or not is_instance_valid(texture):
 		return _INITIAL_RADIUS
 	var texture_size: Vector2 = texture.get_size()
 	return min(texture_size.x, texture_size.y) / 2
+
 
 func _set_size(new_size: float):
 	size = new_size
@@ -54,6 +54,7 @@ func _set_size(new_size: float):
 		return
 	_shape.shape.radius = get_shape_radius() * size
 	_sprite.scale = Vector2(size, size)
+
 
 func _set_texture(new_texture: Texture2D):
 	texture = new_texture
