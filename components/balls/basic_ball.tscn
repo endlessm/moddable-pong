@@ -17,9 +17,9 @@ collision_layer = 2
 collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_c3m63")
 continuous_cd = 1
-max_contacts_reported = 1
 contact_monitor = true
-linear_velocity = Vector2(353.553, 353.553)
+max_contacts_reported = 1
+linear_velocity = Vector2(353.55338, 353.55338)
 script = ExtResource("1_kv14h")
 texture = ExtResource("2_ndlr6")
 

@@ -2,7 +2,7 @@
   "title": "Moddable Pong",
   "description": "This mini moddable game project by Endless OS Foundation is intended to help ease the learning curve into Godot. This sample project allows learners to engage with game creation concepts, applying various modifications to the game itself, all without reading or writing any code.",
   "category_id": "9",
-  "godot_version": "4.4",
+  "godot_version": "4.5",
   "version_string": "{{ context.release.name }}",
   "cost": "MIT",
   "support_level": "community",

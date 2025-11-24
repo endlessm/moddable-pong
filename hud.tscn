@@ -32,7 +32,7 @@ region_rect = Rect2(0, 0, 20, 1100)
 
 [node name="PlayerLeftScore" type="Label" parent="Control"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
 offset_left = 240.0
 offset_right = 717.0
 offset_bottom = 1080.0
@@ -45,7 +45,7 @@ horizontal_alignment = 1
 
 [node name="PlayerRightScore" type="Label" parent="Control"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
 offset_left = 1200.0
 offset_right = 1677.0
 offset_bottom = 1080.0

@@ -59,6 +59,6 @@ texture = ExtResource("1_lmama")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6b52y")
+&"": SubResource("AnimationLibrary_6b52y")
 }
 autoplay = "rotate"
