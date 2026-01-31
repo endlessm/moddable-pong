@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bis7afjjuwypq"]
+[gd_scene format=3 uid="uid://bis7afjjuwypq"]
 
 [ext_resource type="Script" uid="uid://euh8qnxx8snb" path="res://scripts/hud.gd" id="1_yyb01"]
 [ext_resource type="Texture2D" uid="uid://c44objcqpu6sl" path="res://assets/textures/hud/line.png" id="2_jon51"]
 
-[node name="HUD" type="CanvasLayer" groups=["hud"]]
+[node name="HUD" type="CanvasLayer" unique_id=28693128 groups=["hud"]]
 script = ExtResource("1_yyb01")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1803893979]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=490612980]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Lines" type="Sprite2D" parent="Control/HBoxContainer"]
+[node name="Lines" type="Sprite2D" parent="Control/HBoxContainer" unique_id=1722961127]
 unique_name_in_owner = true
 texture_repeat = 2
 position = Vector2(960, 536)
@@ -30,9 +30,9 @@ texture = ExtResource("2_jon51")
 region_enabled = true
 region_rect = Rect2(0, 0, 20, 1100)
 
-[node name="PlayerLeftScore" type="Label" parent="Control"]
+[node name="PlayerLeftScore" type="Label" parent="Control" unique_id=1086846746]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
 offset_left = 240.0
 offset_right = 717.0
 offset_bottom = 1080.0
@@ -43,9 +43,9 @@ theme_override_font_sizes/font_size = 200
 text = "0"
 horizontal_alignment = 1
 
-[node name="PlayerRightScore" type="Label" parent="Control"]
+[node name="PlayerRightScore" type="Label" parent="Control" unique_id=816845650]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
 offset_left = 1200.0
 offset_right = 1677.0
 offset_bottom = 1080.0

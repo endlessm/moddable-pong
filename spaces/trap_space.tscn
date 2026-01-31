@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxl66pfeiyq7"]
+[gd_scene format=3 uid="uid://bxl66pfeiyq7"]
 
 [ext_resource type="Texture2D" uid="uid://b1blrsjderjjs" path="res://assets/textures/spaces/trap_space.png" id="1_d6xnt"]
 [ext_resource type="Script" uid="uid://dlqp1c3nryqew" path="res://scripts/spaces/trap_space.gd" id="1_olh01"]
@@ -80,10 +80,10 @@ _data = {
 &"moving_walls": SubResource("Animation_vaqix")
 }
 
-[node name="TrapSpace" type="Node2D"]
+[node name="TrapSpace" type="Node2D" unique_id=1785661363]
 script = ExtResource("1_olh01")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1392062109]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_d6xnt")
@@ -94,12 +94,12 @@ patch_margin_bottom = 64
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="WallTop" type="AnimatableBody2D" parent="."]
+[node name="WallTop" type="AnimatableBody2D" parent="." unique_id=1397794535]
 collision_layer = 4
 collision_mask = 3
 collision_priority = 10.0
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="WallTop"]
+[node name="NinePatchRect2" type="NinePatchRect" parent="WallTop" unique_id=464712126]
 offset_top = -583.0
 offset_right = 1925.0
 offset_bottom = 12.0
@@ -110,16 +110,16 @@ patch_margin_bottom = 64
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallTop"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallTop" unique_id=1038334461]
 position = Vector2(960, -256)
 shape = SubResource("RectangleShape2D_madpv")
 
-[node name="WallBottom" type="AnimatableBody2D" parent="."]
+[node name="WallBottom" type="AnimatableBody2D" parent="." unique_id=2133093860]
 collision_layer = 4
 collision_mask = 3
 collision_priority = 10.0
 
-[node name="NinePatchRect3" type="NinePatchRect" parent="WallBottom"]
+[node name="NinePatchRect3" type="NinePatchRect" parent="WallBottom" unique_id=696464193]
 offset_top = 1666.0
 offset_right = 1925.0
 offset_bottom = 2261.0
@@ -131,38 +131,36 @@ patch_margin_bottom = 64
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallBottom"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallBottom" unique_id=1304739398]
 position = Vector2(960, 1336)
 shape = SubResource("RectangleShape2D_171tb")
 
-[node name="PaddleBounds" type="RigidBody2D" parent="."]
+[node name="PaddleBounds" type="RigidBody2D" parent="." unique_id=597133600]
 collision_layer = 64
 collision_mask = 0
 mass = 9999.0
 lock_rotation = true
 freeze = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="PaddleBounds"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PaddleBounds" unique_id=238815175]
 position = Vector2(-32, 540)
 shape = SubResource("RectangleShape2D_t4u81")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="PaddleBounds"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PaddleBounds" unique_id=912864287]
 position = Vector2(1952, 540)
 shape = SubResource("RectangleShape2D_t4u81")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="PaddleBounds"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="PaddleBounds" unique_id=875620503]
 position = Vector2(960, 540)
 shape = SubResource("RectangleShape2D_dokke")
 
-[node name="LeftGoal" parent="." instance=ExtResource("3_ih2ia")]
+[node name="LeftGoal" parent="." unique_id=917747597 instance=ExtResource("3_ih2ia")]
 
-[node name="RightGoal" parent="." instance=ExtResource("3_ih2ia")]
+[node name="RightGoal" parent="." unique_id=1973694157 instance=ExtResource("3_ih2ia")]
 position = Vector2(1920, 0)
 scale = Vector2(-1, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1792373100]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_n6ke7")
-}
-autoplay = "moving_walls"
+libraries/ = SubResource("AnimationLibrary_n6ke7")
+autoplay = &"moving_walls"

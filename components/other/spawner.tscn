@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg1m4evi8c35o"]
+[gd_scene format=3 uid="uid://cg1m4evi8c35o"]
 
 [ext_resource type="Script" uid="uid://bq06rjde2tixy" path="res://scripts/components/other/spawner.gd" id="1_u34ai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glns7"]
 size = Vector2(200, 200)
 
-[node name="Spawner" type="Node2D"]
+[node name="Spawner" type="Node2D" unique_id=2054754429]
 script = ExtResource("1_u34ai")
 spawn_area = SubResource("RectangleShape2D_glns7")

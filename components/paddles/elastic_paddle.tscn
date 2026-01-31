@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgc8oonwgrolq"]
+[gd_scene format=3 uid="uid://bgc8oonwgrolq"]
 
 [ext_resource type="Script" uid="uid://dxmt2iwdumt0m" path="res://scripts/components/paddles/elastic_paddle.gd" id="1_nvsnh"]
 [ext_resource type="Texture2D" uid="uid://1inf1kpv25ls" path="res://assets/textures/paddles/elastic_paddle.png" id="2_42nqy"]
@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbbjr"]
 size = Vector2(128, 128)
 
-[node name="ElasticPaddle" type="CharacterBody2D" groups=["paddles"]]
+[node name="ElasticPaddle" type="CharacterBody2D" unique_id=432215890 groups=["paddles"]]
 collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_nvsnh")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2060686763]
 unique_name_in_owner = true
 offset_left = -64.0
 offset_top = -64.0
@@ -24,6 +24,6 @@ patch_margin_top = 64
 patch_margin_right = 64
 patch_margin_bottom = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=918508869]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_bbbjr")
