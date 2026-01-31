@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7l70grmkauij"]
+[gd_scene format=3 uid="uid://c7l70grmkauij"]
 
 [ext_resource type="Script" uid="uid://bq1hdldyxfxr1" path="res://scripts/components/balls/basic_ball.gd" id="1_kv14h"]
 [ext_resource type="Texture2D" uid="uid://co55eluvg22u1" path="res://assets/textures/balls/basic_ball.png" id="2_ndlr6"]
@@ -12,29 +12,29 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_sntrn"]
 radius = 64.0
 
-[node name="BasicBall" type="RigidBody2D" groups=["balls"]]
+[node name="BasicBall" type="RigidBody2D" unique_id=1920259060 groups=["balls"]]
 collision_layer = 2
 collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_c3m63")
 continuous_cd = 1
-max_contacts_reported = 1
 contact_monitor = true
-linear_velocity = Vector2(353.553, 353.553)
+max_contacts_reported = 1
+linear_velocity = Vector2(353.55338, 353.55338)
 script = ExtResource("1_kv14h")
 texture = ExtResource("2_ndlr6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1314044827]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_sntrn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1456571422]
 unique_name_in_owner = true
 texture = ExtResource("2_ndlr6")
 
-[node name="WallAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="WallAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1493700853]
 stream = ExtResource("3_8b06y")
 
-[node name="PaddleAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="PaddleAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2038188458]
 stream = ExtResource("4_2gpnh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

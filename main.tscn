@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bel3lwsvc2uc3"]
+[gd_scene format=3 uid="uid://bel3lwsvc2uc3"]
 
 [ext_resource type="PackedScene" uid="uid://s7enbp56f256" path="res://components/paddles/basic_paddle.tscn" id="1_xxpg5"]
 [ext_resource type="PackedScene" uid="uid://cg1m4evi8c35o" path="res://components/other/spawner.tscn" id="3_spct4"]
@@ -12,30 +12,29 @@ size = Vector2(10, 1080)
 
 [sub_resource type="SystemFont" id="SystemFont_24cl0"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=2044054091]
 metadata/_edit_vertical_guides_ = [-933.0]
 
-[node name="BasicSpace" parent="." instance=ExtResource("4_nvjpm")]
+[node name="BasicSpace" parent="." unique_id=555324886 instance=ExtResource("4_nvjpm")]
 
-[node name="BasicPaddleLeft" parent="." instance=ExtResource("1_xxpg5")]
+[node name="BasicPaddleLeft" parent="." unique_id=1172588574 instance=ExtResource("1_xxpg5")]
 position = Vector2(64, 512)
 tint = Color(0.511023, 0.361749, 0.971889, 1)
 
-[node name="BasicPaddleRight" parent="." instance=ExtResource("1_xxpg5")]
+[node name="BasicPaddleRight" parent="." unique_id=207478003 instance=ExtResource("1_xxpg5")]
 position = Vector2(1856, 512)
 player = 1
 tint = Color(0.511023, 0.361749, 0.971889, 1)
 
-[node name="BallSpawner" parent="." groups=["ball spawners"] instance=ExtResource("3_spct4")]
+[node name="BallSpawner" parent="." unique_id=1288512930 groups=["ball spawners"] instance=ExtResource("3_spct4")]
 position = Vector2(967, 531)
 spawn_area = SubResource("RectangleShape2D_guyqd")
 life_time = 0.0
 
-[node name="BasicBall" parent="BallSpawner" instance=ExtResource("4_rffv2")]
-linear_velocity = Vector2(353.553, 353.553)
+[node name="BasicBall" parent="BallSpawner" unique_id=124336611 instance=ExtResource("4_rffv2")]
 tint = Color(0.509804, 0.360784, 0.972549, 1)
 
-[node name="GameLogic" parent="." instance=ExtResource("3_umelw")]
+[node name="GameLogic" parent="." unique_id=1238068659 instance=ExtResource("3_umelw")]
 
-[node name="HUD" parent="." instance=ExtResource("4_4868o")]
+[node name="HUD" parent="." unique_id=1961739734 instance=ExtResource("4_4868o")]
 font = SubResource("SystemFont_24cl0")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb52xx0oi1pkc"]
+[gd_scene format=3 uid="uid://bb52xx0oi1pkc"]
 
 [ext_resource type="Script" uid="uid://d4m3qcid4iltn" path="res://scripts/components/balls/banana_ball.gd" id="1_6w3xg"]
 [ext_resource type="Texture2D" uid="uid://1ghbd8r5gklq" path="res://assets/textures/balls/banana_ball.png" id="2_mt4lr"]
@@ -13,30 +13,30 @@ bounce = 1.0
 radius = 48.0
 height = 176.0
 
-[node name="BananaBall" type="RigidBody2D" groups=["balls"]]
+[node name="BananaBall" type="RigidBody2D" unique_id=1490640742 groups=["balls"]]
 collision_layer = 2
 collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_c3m63")
 continuous_cd = 1
-max_contacts_reported = 1
 contact_monitor = true
-linear_velocity = Vector2(353.553, 353.553)
+max_contacts_reported = 1
+linear_velocity = Vector2(353.55338, 353.55338)
 angular_velocity = 10.0
 script = ExtResource("1_6w3xg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2108106537]
 unique_name_in_owner = true
 shape = SubResource("CapsuleShape2D_dqj0q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=434607763]
 unique_name_in_owner = true
 texture = ExtResource("2_mt4lr")
 
-[node name="WallAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="WallAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=604640636]
 stream = ExtResource("3_hef1k")
 volume_db = -4.0
 
-[node name="PaddleAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="PaddleAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1873625954]
 stream = ExtResource("4_3r7fx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

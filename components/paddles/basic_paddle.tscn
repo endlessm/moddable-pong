@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://s7enbp56f256"]
+[gd_scene format=3 uid="uid://s7enbp56f256"]
 
 [ext_resource type="Script" uid="uid://bljfuch3mb7d6" path="res://scripts/components/paddles/basic_paddle.gd" id="1_uxuxq"]
 [ext_resource type="Texture2D" uid="uid://d2on48uigj7p" path="res://assets/textures/paddles/basic_paddle.png" id="2_3vvgv"]
@@ -6,15 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbbjr"]
 size = Vector2(128, 384)
 
-[node name="BasicPaddle" type="CharacterBody2D" groups=["paddles"]]
+[node name="BasicPaddle" type="CharacterBody2D" unique_id=978869989 groups=["paddles"]]
 collision_mask = 68
 motion_mode = 1
 script = ExtResource("1_uxuxq")
 texture = ExtResource("2_3vvgv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1934089664]
 shape = SubResource("RectangleShape2D_bbbjr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=615417584]
 unique_name_in_owner = true
 texture = ExtResource("2_3vvgv")

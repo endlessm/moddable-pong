@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg8ibi18um3vg"]
+[gd_scene format=3 uid="uid://cg8ibi18um3vg"]
 
 [ext_resource type="Script" uid="uid://d0hbwawfjluw5" path="res://scripts/spaces/basic_space.gd" id="1_kship"]
 [ext_resource type="PackedScene" uid="uid://b8qantjvnary8" path="res://components/other/goal.tscn" id="3_2llkd"]
@@ -13,11 +13,11 @@ size = Vector2(64, 1080)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyev5"]
 size = Vector2(256, 1080)
 
-[node name="BasicSpace" type="Node2D"]
+[node name="BasicSpace" type="Node2D" unique_id=1601105350]
 script = ExtResource("1_kship")
 background_texture = ExtResource("4_fsf6n")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1776290972]
 unique_name_in_owner = true
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -29,7 +29,7 @@ patch_margin_bottom = 64
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="Walls" type="RigidBody2D" parent="."]
+[node name="Walls" type="RigidBody2D" parent="." unique_id=209646247]
 collision_layer = 4
 collision_mask = 3
 collision_priority = 10.0
@@ -37,36 +37,36 @@ mass = 9999.0
 lock_rotation = true
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1178460395]
 position = Vector2(960, -256)
 shape = SubResource("RectangleShape2D_q267f")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=2067408557]
 position = Vector2(960, 1336)
 shape = SubResource("RectangleShape2D_q267f")
 
-[node name="PaddleBounds" type="RigidBody2D" parent="."]
+[node name="PaddleBounds" type="RigidBody2D" parent="." unique_id=534845010]
 collision_layer = 64
 collision_mask = 0
 mass = 9999.0
 lock_rotation = true
 freeze = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="PaddleBounds"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PaddleBounds" unique_id=1071437960]
 position = Vector2(-32, 540)
 shape = SubResource("RectangleShape2D_bqkwh")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="PaddleBounds"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PaddleBounds" unique_id=333654117]
 position = Vector2(1952, 540)
 shape = SubResource("RectangleShape2D_bqkwh")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="PaddleBounds"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="PaddleBounds" unique_id=12520474]
 position = Vector2(960, 540)
 shape = SubResource("RectangleShape2D_lyev5")
 
-[node name="LeftGoal" parent="." instance=ExtResource("3_2llkd")]
+[node name="LeftGoal" parent="." unique_id=1363694109 instance=ExtResource("3_2llkd")]
 
-[node name="RightGoal" parent="." instance=ExtResource("3_2llkd")]
+[node name="RightGoal" parent="." unique_id=1280138702 instance=ExtResource("3_2llkd")]
 position = Vector2(1920, 0)
 scale = Vector2(-1, 1)
 player = 1

@@ -13,13 +13,13 @@ config_version=5
 config/name="Moddable Pong"
 config/version="$Format:%(describe:tags)$"
 run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/global.gd"
-DampedOscillator="*res://addons/DampedOscillator/scripts/damped_oscillator.tscn"
+DampedOscillator="*uid://bkqabubjo4g5a"
 
 [display]
 

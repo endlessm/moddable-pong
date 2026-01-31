@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh5ty3tgam2gp"]
+[gd_scene format=3 uid="uid://bh5ty3tgam2gp"]
 
 [ext_resource type="Texture2D" uid="uid://1fcfep77mg20" path="res://assets/textures/spaces/galaxy_space.png" id="1_epiid"]
 [ext_resource type="PackedScene" uid="uid://cg1m4evi8c35o" path="res://components/other/spawner.tscn" id="1_kgd61"]
@@ -18,9 +18,9 @@ size = Vector2(256, 1080)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7tvt"]
 size = Vector2(1600, 750)
 
-[node name="GalaxySpace" type="Node2D"]
+[node name="GalaxySpace" type="Node2D" unique_id=484195275]
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1894075110]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_epiid")
@@ -31,7 +31,7 @@ patch_margin_bottom = 64
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="Walls" type="RigidBody2D" parent="."]
+[node name="Walls" type="RigidBody2D" parent="." unique_id=1658452941]
 collision_layer = 4
 collision_mask = 3
 collision_priority = 10.0
@@ -39,49 +39,49 @@ mass = 9999.0
 lock_rotation = true
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=595293462]
 position = Vector2(960, -256)
 shape = SubResource("RectangleShape2D_ca7vo")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=87634012]
 position = Vector2(960, 1336)
 shape = SubResource("RectangleShape2D_ca7vo")
 
-[node name="PaddleBounds" type="RigidBody2D" parent="."]
+[node name="PaddleBounds" type="RigidBody2D" parent="." unique_id=2116955530]
 collision_layer = 64
 collision_mask = 0
 mass = 9999.0
 lock_rotation = true
 freeze = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="PaddleBounds"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PaddleBounds" unique_id=1148079192]
 position = Vector2(-32, 540)
 shape = SubResource("RectangleShape2D_vprgn")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="PaddleBounds"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PaddleBounds" unique_id=232761427]
 position = Vector2(1952, 540)
 shape = SubResource("RectangleShape2D_vprgn")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="PaddleBounds"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="PaddleBounds" unique_id=1941817654]
 position = Vector2(960, 540)
 shape = SubResource("RectangleShape2D_wobvs")
 
-[node name="LeftGoal" parent="." instance=ExtResource("3_s2bjg")]
+[node name="LeftGoal" parent="." unique_id=27362938 instance=ExtResource("3_s2bjg")]
 
-[node name="RightGoal" parent="." instance=ExtResource("3_s2bjg")]
+[node name="RightGoal" parent="." unique_id=1275396760 instance=ExtResource("3_s2bjg")]
 position = Vector2(1920, 0)
 scale = Vector2(-1, 1)
 
-[node name="Vortex" parent="." instance=ExtResource("5_kwupg")]
+[node name="Vortex" parent="." unique_id=544084885 instance=ExtResource("5_kwupg")]
 position = Vector2(1420, 811)
 
-[node name="Vortex2" parent="." instance=ExtResource("5_kwupg")]
+[node name="Vortex2" parent="." unique_id=411422250 instance=ExtResource("5_kwupg")]
 position = Vector2(479, 269)
 
-[node name="AsteroidsSpawner" parent="." instance=ExtResource("1_kgd61")]
+[node name="AsteroidsSpawner" parent="." unique_id=2095084171 instance=ExtResource("1_kgd61")]
 position = Vector2(967, 531)
 spawn_area = SubResource("RectangleShape2D_l7tvt")
 life_time = 5.0
 spawn_frequency = 3.0
 
-[node name="Asteroid" parent="AsteroidsSpawner" instance=ExtResource("4_6j0m2")]
+[node name="Asteroid" parent="AsteroidsSpawner" unique_id=299860199 instance=ExtResource("4_6j0m2")]
