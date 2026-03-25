@@ -1,2 +1,20 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Working directory
+build/
+
+# For simplicity this repo does not use Git LFS; so committing potentially large
+# binary files like Aseprite projects is likely to be a mistake.
+*.ase
+*.aseprite
+
+# Godot Patchwork addon, bundled editor build, launcher, updater, and
+# config/state files
+/addons/patchwork/
+/godot_editor/
+.patchwork
+.patchwork_version
+patchwork.cfg
+launch-patchwork.exe
+update-patchwork.exe
