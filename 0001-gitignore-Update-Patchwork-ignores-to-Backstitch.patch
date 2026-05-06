@@ -1,0 +1,37 @@
+From 873fe278911c5388836ca72e6745802d6dbcbee8 Mon Sep 17 00:00:00 2001
+From: Will Thompson <wjt@endlessaccess.org>
+Date: Mon, 13 Apr 2026 16:02:30 +0100
+Subject: [PATCH] gitignore: Update Patchwork ignores to Backstitch
+
+This tool was renamed.
+
+Remove the ignores for the launcher, which were rejected upstream
+---
+ .gitignore | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
+
+diff --git a/.gitignore b/.gitignore
+index c53cb6c..0cade8a 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -9,12 +9,9 @@ build/
+ *.ase
+ *.aseprite
+ 
+-# Godot Patchwork addon, bundled editor build, launcher, updater, and
+-# config/state files
+-/addons/patchwork/
++# Godot Backstitch addon, bundled editor build, and config/state files
++/addons/backstitch/
+ /godot_editor/
+-.patchwork
+-.patchwork_version
+-patchwork.cfg
+-launch-patchwork.exe
+-update-patchwork.exe
++.backstitch_version
++/.backstitch/
++backstitch.cfg
+-- 
+2.53.0
+
