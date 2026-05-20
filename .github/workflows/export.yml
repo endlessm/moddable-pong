@@ -22,7 +22,7 @@ jobs:
         with:
           lfs: true
 
-      - uses: endlessm/godot-export-action@v1
+      - uses: endlessm/godot-export-action@v2
         with:
           godot_version: "4.6"
 
